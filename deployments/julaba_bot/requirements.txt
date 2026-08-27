@@ -1,0 +1,28 @@
+# Julaba - AI-Enhanced Trading Bot
+# Install with: pip install -r requirements.txt
+
+# Core trading
+ccxt>=4.0.0
+pandas>=2.0.0
+ta>=0.10.0
+python-dotenv>=1.0.0
+
+# AI Integration (Gemini - FREE tier available!)
+google-genai>=0.3.0
+
+# Telegram Bot
+python-telegram-bot>=20.0
+
+# Async support
+aiohttp>=3.8.0
+
+# Machine Learning (for ML Regime Classifier)
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# Dashboard (optional - for web UI)
+flask>=3.0.0
+
+# Charts for Telegram (optional)
+matplotlib>=3.7.0
+mplfinance>=0.12.10b0
