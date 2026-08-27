@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sweep Results</title></head>
+<body style="font-family:Arial; margin:40px;">
+  <h1>Run Parameter Sweep</h1>
+  <form method="POST">
+    <p><strong>Choose Stop-Loss Method:</strong></p>
+    <select name="stoppx_method" style="padding:10px; font-size:16px;">
+      <option>ATR×2</option>
+      <option>ATR×3</option>
+      <option>Fixed 1R</option>
+      <option>PSAR</option>
+    </select>
+    <br><br>
+    <button type="submit" style="padding:15px 30px; font-size:18px;">RUN FULL SWEEP</button>
+  </form>
+
+  {% if available_runs %}
+    <hr style="margin:40px 0;">
+    <h2>Select Runs To Export</h2>
+    <form method="POST" action="{{ url_for('export_trades_endpoint') }}">
+      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%; font-size:14px;">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>RunID</th>
+            <th>TP Rs</th>
+            <th>TP %s</th>
+            <th>Stop</th>
+            <th>Conflict</th>
+            <th>Trades</th>
+            <th>Expectancy</th>
+            <th>PF</th>
+            <th>Analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for run in available_runs %}
+            <tr>
+              <td style="text-align:center;">
+                <input type="checkbox" name="run_ids" value="{{ run['RunID'] }}">
+              </td>
+              <td>{{ run['RunID'] }}</td>
+              <td>{{ run.get('TP_Rs', '') }}</td>
+              <td>{{ run.get('TP_%s', '') }}</td>
+              <td>{{ run.get('StopHandling', '') }}</td>
+              <td>{{ run.get('ConflictMode', '') }}</td>
+              <td>{{ run.get('Trades', '') }}</td>
+              <td>{{ run.get('Expectancy', '') }}</td>
+              <td><a href="{{ url_for('trade_analysis', run_id=run['RunID']) }}">View</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br>
+      <button type="submit" style="padding:10px 20px; font-size:16px;">Export Selected Trades</button>
+    </form>
+  {% endif %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <h2 style="color:green;">{{ messages[0] }}</h2>
+    {% endif %}
+  {% endwith %}
+  <p><a href="/">← Upload new files</a></p>
+</body>
+</html>
