@@ -1,0 +1,3841 @@
+{
+  "metadata": {
+    "total_trades": 200,
+    "closed_trades": 200,
+    "log_file": "/Users/benni/Documents/personal/work/money/trading/bots/25_dec_13/forward equal to backward/bot.log",
+    "generated": "2026-02-20T23:05:35.694361"
+  },
+  "statistics": {
+    "total_trades": 200,
+    "winning_trades": 94,
+    "losing_trades": 106,
+    "breakeven_trades": 0,
+    "win_rate_pct": 47.0,
+    "total_pnl": -274.7977,
+    "winning_pnl": 1359.0964,
+    "losing_pnl": -1633.8941,
+    "avg_win": 14.4585,
+    "avg_loss": -15.4141,
+    "avg_trade": -1.374,
+    "largest_win": 38.0005,
+    "largest_loss": -21.2373,
+    "profit_factor": 0.83,
+    "avg_duration_minutes": 46.0
+  },
+  "daily_performance": {
+    "2026-01-21": {
+      "pnl": 40.6368,
+      "num_trades": 3,
+      "num_wins": 2,
+      "num_losses": 1,
+      "trade_ids": [
+        "T1",
+        "T2",
+        "T3"
+      ]
+    },
+    "2026-01-22": {
+      "pnl": -31.415,
+      "num_trades": 10,
+      "num_wins": 5,
+      "num_losses": 5,
+      "trade_ids": [
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T11",
+        "T10",
+        "T12",
+        "T13"
+      ]
+    },
+    "2026-01-23": {
+      "pnl": -35.1086,
+      "num_trades": 8,
+      "num_wins": 3,
+      "num_losses": 5,
+      "trade_ids": [
+        "T14",
+        "T15",
+        "T16",
+        "T18",
+        "T17",
+        "T19",
+        "T20",
+        "T21"
+      ]
+    },
+    "2026-01-24": {
+      "pnl": -49.4913,
+      "num_trades": 6,
+      "num_wins": 2,
+      "num_losses": 4,
+      "trade_ids": [
+        "T22",
+        "T24",
+        "T25",
+        "T23",
+        "T26",
+        "T27"
+      ]
+    },
+    "2026-01-25": {
+      "pnl": 11.0428,
+      "num_trades": 9,
+      "num_wins": 5,
+      "num_losses": 4,
+      "trade_ids": [
+        "T28",
+        "T29",
+        "T30",
+        "T31",
+        "T32",
+        "T33",
+        "T34",
+        "T35",
+        "T36"
+      ]
+    },
+    "2026-01-26": {
+      "pnl": -34.7709,
+      "num_trades": 4,
+      "num_wins": 1,
+      "num_losses": 3,
+      "trade_ids": [
+        "T37",
+        "T38",
+        "T39",
+        "T40"
+      ]
+    },
+    "2026-01-27": {
+      "pnl": -96.5245,
+      "num_trades": 9,
+      "num_wins": 2,
+      "num_losses": 7,
+      "trade_ids": [
+        "T41",
+        "T42",
+        "T43",
+        "T44",
+        "T45",
+        "T46",
+        "T47",
+        "T48",
+        "T49"
+      ]
+    },
+    "2026-01-28": {
+      "pnl": -76.7324,
+      "num_trades": 10,
+      "num_wins": 3,
+      "num_losses": 7,
+      "trade_ids": [
+        "T50",
+        "T51",
+        "T52",
+        "T53",
+        "T54",
+        "T55",
+        "T57",
+        "T56",
+        "T58",
+        "T59"
+      ]
+    },
+    "2026-01-29": {
+      "pnl": -13.4206,
+      "num_trades": 6,
+      "num_wins": 3,
+      "num_losses": 3,
+      "trade_ids": [
+        "T60",
+        "T61",
+        "T62",
+        "T63",
+        "T64",
+        "T65"
+      ]
+    },
+    "2026-01-30": {
+      "pnl": -44.0835,
+      "num_trades": 6,
+      "num_wins": 1,
+      "num_losses": 5,
+      "trade_ids": [
+        "T66",
+        "T67",
+        "T68",
+        "T69",
+        "T70",
+        "T71"
+      ]
+    },
+    "2026-01-31": {
+      "pnl": 96.4914,
+      "num_trades": 6,
+      "num_wins": 5,
+      "num_losses": 1,
+      "trade_ids": [
+        "T72",
+        "T73",
+        "T74",
+        "T75",
+        "T76",
+        "T77"
+      ]
+    },
+    "2026-02-01": {
+      "pnl": -78.0025,
+      "num_trades": 7,
+      "num_wins": 1,
+      "num_losses": 6,
+      "trade_ids": [
+        "T78",
+        "T79",
+        "T80",
+        "T81",
+        "T82",
+        "T83",
+        "T84"
+      ]
+    },
+    "2026-02-02": {
+      "pnl": 16.0835,
+      "num_trades": 9,
+      "num_wins": 6,
+      "num_losses": 3,
+      "trade_ids": [
+        "T85",
+        "T86",
+        "T87",
+        "T88",
+        "T89",
+        "T90",
+        "T91",
+        "T92",
+        "T93"
+      ]
+    },
+    "2026-02-03": {
+      "pnl": 48.437,
+      "num_trades": 6,
+      "num_wins": 5,
+      "num_losses": 1,
+      "trade_ids": [
+        "T94",
+        "T95",
+        "T96",
+        "T97",
+        "T98",
+        "T99"
+      ]
+    },
+    "2026-02-04": {
+      "pnl": -83.0577,
+      "num_trades": 12,
+      "num_wins": 3,
+      "num_losses": 9,
+      "trade_ids": [
+        "T100",
+        "T101",
+        "T102",
+        "T103",
+        "T104",
+        "T105",
+        "T106",
+        "T107",
+        "T108",
+        "T109",
+        "T110",
+        "T111"
+      ]
+    },
+    "2026-02-05": {
+      "pnl": -76.0472,
+      "num_trades": 11,
+      "num_wins": 3,
+      "num_losses": 8,
+      "trade_ids": [
+        "T113",
+        "T114",
+        "T112",
+        "T115",
+        "T116",
+        "T117",
+        "T119",
+        "T118",
+        "T120",
+        "T121",
+        "T122"
+      ]
+    },
+    "2026-02-06": {
+      "pnl": 27.097,
+      "num_trades": 5,
+      "num_wins": 4,
+      "num_losses": 1,
+      "trade_ids": [
+        "T123",
+        "T124",
+        "T126",
+        "T127",
+        "T125"
+      ]
+    },
+    "2026-02-07": {
+      "pnl": -3.9006,
+      "num_trades": 2,
+      "num_wins": 1,
+      "num_losses": 1,
+      "trade_ids": [
+        "T128",
+        "T129"
+      ]
+    },
+    "2026-02-08": {
+      "pnl": 48.4684,
+      "num_trades": 11,
+      "num_wins": 7,
+      "num_losses": 4,
+      "trade_ids": [
+        "T130",
+        "T131",
+        "T133",
+        "T132",
+        "T134",
+        "T135",
+        "T136",
+        "T137",
+        "T138",
+        "T139",
+        "T140"
+      ]
+    },
+    "2026-02-09": {
+      "pnl": 6.7831,
+      "num_trades": 5,
+      "num_wins": 3,
+      "num_losses": 2,
+      "trade_ids": [
+        "T141",
+        "T142",
+        "T143",
+        "T144",
+        "T145"
+      ]
+    },
+    "2026-02-10": {
+      "pnl": 36.9022,
+      "num_trades": 4,
+      "num_wins": 3,
+      "num_losses": 1,
+      "trade_ids": [
+        "T146",
+        "T147",
+        "T148",
+        "T149"
+      ]
+    },
+    "2026-02-11": {
+      "pnl": -26.0479,
+      "num_trades": 4,
+      "num_wins": 1,
+      "num_losses": 3,
+      "trade_ids": [
+        "T150",
+        "T151",
+        "T152",
+        "T153"
+      ]
+    },
+    "2026-02-12": {
+      "pnl": 7.2806,
+      "num_trades": 5,
+      "num_wins": 3,
+      "num_losses": 2,
+      "trade_ids": [
+        "T154",
+        "T155",
+        "T156",
+        "T157",
+        "T158"
+      ]
+    },
+    "2026-02-13": {
+      "pnl": -0.8463,
+      "num_trades": 6,
+      "num_wins": 3,
+      "num_losses": 3,
+      "trade_ids": [
+        "T159",
+        "T160",
+        "T161",
+        "T162",
+        "T163",
+        "T164"
+      ]
+    },
+    "2026-02-14": {
+      "pnl": 11.4334,
+      "num_trades": 3,
+      "num_wins": 2,
+      "num_losses": 1,
+      "trade_ids": [
+        "T165",
+        "T166",
+        "T167"
+      ]
+    },
+    "2026-02-15": {
+      "pnl": 7.1461,
+      "num_trades": 5,
+      "num_wins": 3,
+      "num_losses": 2,
+      "trade_ids": [
+        "T168",
+        "T169",
+        "T170",
+        "T171",
+        "T172"
+      ]
+    },
+    "2026-02-16": {
+      "pnl": -20.6668,
+      "num_trades": 6,
+      "num_wins": 2,
+      "num_losses": 4,
+      "trade_ids": [
+        "T173",
+        "T174",
+        "T175",
+        "T176",
+        "T177",
+        "T178"
+      ]
+    },
+    "2026-02-17": {
+      "pnl": 0.8962,
+      "num_trades": 5,
+      "num_wins": 3,
+      "num_losses": 2,
+      "trade_ids": [
+        "T179",
+        "T180",
+        "T181",
+        "T182",
+        "T183"
+      ]
+    },
+    "2026-02-18": {
+      "pnl": -16.3056,
+      "num_trades": 5,
+      "num_wins": 2,
+      "num_losses": 3,
+      "trade_ids": [
+        "T184",
+        "T185",
+        "T186",
+        "T187",
+        "T188"
+      ]
+    },
+    "2026-02-19": {
+      "pnl": 74.7205,
+      "num_trades": 6,
+      "num_wins": 5,
+      "num_losses": 1,
+      "trade_ids": [
+        "T189",
+        "T190",
+        "T191",
+        "T192",
+        "T193",
+        "T194"
+      ]
+    },
+    "2026-02-20": {
+      "pnl": -21.7953,
+      "num_trades": 6,
+      "num_wins": 2,
+      "num_losses": 4,
+      "trade_ids": [
+        "T195",
+        "T196",
+        "T197",
+        "T198",
+        "T199",
+        "T200"
+      ]
+    }
+  },
+  "trades": {
+    "T1": {
+      "trade_id": "T1",
+      "entry_time": "2026-01-21 01:12:29",
+      "entry_price": 12.16,
+      "side": "LONG",
+      "stop_price": 12.09386,
+      "size": 302.39,
+      "exit_price": null,
+      "close_time": "2026-01-21 03:06:09",
+      "pnl": 38.0005,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.22614,
+          "time": "2026-01-21 01:39:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 113
+    },
+    "T2": {
+      "trade_id": "T2",
+      "entry_time": "2026-01-21 08:42:15",
+      "entry_price": 12.31,
+      "side": "SHORT",
+      "stop_price": 12.34958,
+      "size": 524.44,
+      "exit_price": null,
+      "close_time": "2026-01-21 09:57:05",
+      "pnl": 23.8736,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.27042,
+          "time": "2026-01-21 09:39:29"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 74
+    },
+    "T3": {
+      "trade_id": "T3",
+      "entry_time": "2026-01-21 11:18:22",
+      "entry_price": 12.32,
+      "side": "LONG",
+      "stop_price": 12.27517,
+      "size": 473.77,
+      "exit_price": null,
+      "close_time": "2026-01-21 11:36:17",
+      "pnl": -21.2373,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 17
+    },
+    "T4": {
+      "trade_id": "T4",
+      "entry_time": "2026-01-22 00:45:13",
+      "entry_price": 12.4,
+      "side": "SHORT",
+      "stop_price": 12.46116,
+      "size": 340.31,
+      "exit_price": null,
+      "close_time": "2026-01-22 01:39:06",
+      "pnl": -20.8126,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 53
+    },
+    "T5": {
+      "trade_id": "T5",
+      "entry_time": "2026-01-22 02:18:23",
+      "entry_price": 12.52,
+      "side": "LONG",
+      "stop_price": 12.46104,
+      "size": 345.95,
+      "exit_price": null,
+      "close_time": "2026-01-22 03:33:08",
+      "pnl": 14.2771,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.57896,
+          "time": "2026-01-22 03:18:06"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 74
+    },
+    "T6": {
+      "trade_id": "T6",
+      "entry_time": "2026-01-22 07:09:03",
+      "entry_price": 12.45,
+      "side": "SHORT",
+      "stop_price": 12.4959,
+      "size": 450.62,
+      "exit_price": null,
+      "close_time": "2026-01-22 07:54:12",
+      "pnl": -20.6819,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 45
+    },
+    "T7": {
+      "trade_id": "T7",
+      "entry_time": "2026-01-22 12:18:04",
+      "entry_price": 12.42,
+      "side": "SHORT",
+      "stop_price": 12.46006,
+      "size": 505.96,
+      "exit_price": null,
+      "close_time": "2026-01-22 12:45:04",
+      "pnl": 14.1874,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.37994,
+          "time": "2026-01-22 12:39:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 27
+    },
+    "T8": {
+      "trade_id": "T8",
+      "entry_time": "2026-01-22 13:15:04",
+      "entry_price": 12.38,
+      "side": "SHORT",
+      "stop_price": 12.4185,
+      "size": 533.79,
+      "exit_price": null,
+      "close_time": "2026-01-22 14:18:24",
+      "pnl": -20.5515,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 63
+    },
+    "T9": {
+      "trade_id": "T9",
+      "entry_time": "2026-01-22 14:12:17",
+      "entry_price": 12.4,
+      "side": "LONG",
+      "stop_price": 12.35986,
+      "size": 512.02,
+      "exit_price": null,
+      "close_time": "2026-01-22 14:36:11",
+      "pnl": 14.3861,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.44014,
+          "time": "2026-01-22 14:33:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 23
+    },
+    "T10": {
+      "trade_id": "T10",
+      "entry_time": "2026-01-22 14:45:29",
+      "entry_price": 12.34,
+      "side": "SHORT",
+      "stop_price": 12.3966,
+      "size": 360.96,
+      "exit_price": null,
+      "close_time": "2026-01-22 15:42:15",
+      "pnl": 14.2997,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.2834,
+          "time": "2026-01-22 15:39:16"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 56
+    },
+    "T11": {
+      "trade_id": "T11",
+      "entry_time": "2026-01-22 15:36:04",
+      "entry_price": 12.3,
+      "side": "SHORT",
+      "stop_price": 12.3641,
+      "size": 318.72,
+      "exit_price": null,
+      "close_time": "2026-01-22 15:39:16",
+      "pnl": -20.4285,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 3
+    },
+    "T12": {
+      "trade_id": "T12",
+      "entry_time": "2026-01-22 15:51:05",
+      "entry_price": 12.24,
+      "side": "SHORT",
+      "stop_price": 12.32231,
+      "size": 246.7,
+      "exit_price": null,
+      "close_time": "2026-01-22 16:36:19",
+      "pnl": 14.2137,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.15769,
+          "time": "2026-01-22 16:27:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 45
+    },
+    "T13": {
+      "trade_id": "T13",
+      "entry_time": "2026-01-22 16:27:18",
+      "entry_price": 12.15,
+      "side": "SHORT",
+      "stop_price": 12.24214,
+      "size": 220.38,
+      "exit_price": null,
+      "close_time": "2026-01-22 16:45:04",
+      "pnl": -20.3045,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 17
+    },
+    "T14": {
+      "trade_id": "T14",
+      "entry_time": "2026-01-23 01:18:12",
+      "entry_price": 12.28,
+      "side": "LONG",
+      "stop_price": 12.23965,
+      "size": 500.29,
+      "exit_price": null,
+      "close_time": "2026-01-23 01:36:14",
+      "pnl": -20.1843,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 18
+    },
+    "T15": {
+      "trade_id": "T15",
+      "entry_time": "2026-01-23 05:15:13",
+      "entry_price": 12.38,
+      "side": "LONG",
+      "stop_price": 12.34026,
+      "size": 497.77,
+      "exit_price": null,
+      "close_time": "2026-01-23 06:27:09",
+      "pnl": -19.7803,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 71
+    },
+    "T16": {
+      "trade_id": "T16",
+      "entry_time": "2026-01-23 08:51:23",
+      "entry_price": 12.26,
+      "side": "SHORT",
+      "stop_price": 12.29852,
+      "size": 503.19,
+      "exit_price": null,
+      "close_time": "2026-01-23 09:06:20",
+      "pnl": -19.3844,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 14
+    },
+    "T17": {
+      "trade_id": "T17",
+      "entry_time": "2026-01-23 11:18:17",
+      "entry_price": 12.23,
+      "side": "LONG",
+      "stop_price": 12.17556,
+      "size": 348.96,
+      "exit_price": null,
+      "close_time": "2026-01-23 15:18:03",
+      "pnl": -18.9967,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 239
+    },
+    "T18": {
+      "trade_id": "T18",
+      "entry_time": "2026-01-23 11:51:25",
+      "entry_price": 12.23,
+      "side": "LONG",
+      "stop_price": 12.18293,
+      "size": 403.61,
+      "exit_price": null,
+      "close_time": "2026-01-23 14:00:04",
+      "pnl": 13.2978,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.27707,
+          "time": "2026-01-23 13:54:05"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 128
+    },
+    "T19": {
+      "trade_id": "T19",
+      "entry_time": "2026-01-23 13:48:20",
+      "entry_price": 12.25,
+      "side": "SHORT",
+      "stop_price": 12.28686,
+      "size": 515.42,
+      "exit_price": null,
+      "close_time": "2026-01-23 15:33:06",
+      "pnl": 36.0957,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.21314,
+          "time": "2026-01-23 15:12:07"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 104
+    },
+    "T20": {
+      "trade_id": "T20",
+      "entry_time": "2026-01-23 18:33:30",
+      "entry_price": 12.41,
+      "side": "LONG",
+      "stop_price": 12.33138,
+      "size": 249.36,
+      "exit_price": null,
+      "close_time": "2026-01-23 18:42:14",
+      "pnl": 13.7231,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.48862,
+          "time": "2026-01-23 18:39:10"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 8
+    },
+    "T21": {
+      "trade_id": "T21",
+      "entry_time": "2026-01-23 21:33:15",
+      "entry_price": 12.16,
+      "side": "SHORT",
+      "stop_price": 12.22329,
+      "size": 314.11,
+      "exit_price": null,
+      "close_time": "2026-01-23 22:12:13",
+      "pnl": -19.8795,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 38
+    },
+    "T22": {
+      "trade_id": "T22",
+      "entry_time": "2026-01-24 01:24:03",
+      "entry_price": 12.25,
+      "side": "LONG",
+      "stop_price": 12.21147,
+      "size": 505.6,
+      "exit_price": null,
+      "close_time": "2026-01-24 02:36:18",
+      "pnl": -19.482,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 72
+    },
+    "T23": {
+      "trade_id": "T23",
+      "entry_time": "2026-01-24 07:24:07",
+      "entry_price": 12.21,
+      "side": "SHORT",
+      "stop_price": 12.24091,
+      "size": 617.67,
+      "exit_price": null,
+      "close_time": "2026-01-24 15:21:11",
+      "pnl": 13.3645,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.17909,
+          "time": "2026-01-24 15:00:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 477
+    },
+    "T24": {
+      "trade_id": "T24",
+      "entry_time": "2026-01-24 09:39:03",
+      "entry_price": 12.22,
+      "side": "LONG",
+      "stop_price": 12.19297,
+      "size": 706.34,
+      "exit_price": null,
+      "close_time": "2026-01-24 11:18:09",
+      "pnl": -19.0925,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 99
+    },
+    "T25": {
+      "trade_id": "T25",
+      "entry_time": "2026-01-24 12:21:17",
+      "entry_price": 12.23,
+      "side": "LONG",
+      "stop_price": 12.20482,
+      "size": 743.01,
+      "exit_price": null,
+      "close_time": "2026-01-24 12:33:18",
+      "pnl": -18.7106,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T26": {
+      "trade_id": "T26",
+      "entry_time": "2026-01-24 15:06:11",
+      "entry_price": 12.17,
+      "side": "SHORT",
+      "stop_price": 12.20438,
+      "size": 533.33,
+      "exit_price": null,
+      "close_time": "2026-01-24 16:06:15",
+      "pnl": -18.3364,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 60
+    },
+    "T27": {
+      "trade_id": "T27",
+      "entry_time": "2026-01-24 18:54:18",
+      "entry_price": 12.2,
+      "side": "LONG",
+      "stop_price": 12.16659,
+      "size": 545.9,
+      "exit_price": null,
+      "close_time": "2026-01-24 19:42:21",
+      "pnl": 12.7657,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.23341,
+          "time": "2026-01-24 19:39:16"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 48
+    },
+    "T28": {
+      "trade_id": "T28",
+      "entry_time": "2026-01-25 02:24:03",
+      "entry_price": 12.17,
+      "side": "SHORT",
+      "stop_price": 12.20054,
+      "size": 605.59,
+      "exit_price": null,
+      "close_time": "2026-01-25 04:33:15",
+      "pnl": 35.136,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.13946,
+          "time": "2026-01-25 04:09:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 129
+    },
+    "T29": {
+      "trade_id": "T29",
+      "entry_time": "2026-01-25 04:24:12",
+      "entry_price": 12.11,
+      "side": "SHORT",
+      "stop_price": 12.14597,
+      "size": 514.1,
+      "exit_price": null,
+      "close_time": "2026-01-25 04:39:10",
+      "pnl": 12.9445,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.07403,
+          "time": "2026-01-25 04:33:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 14
+    },
+    "T30": {
+      "trade_id": "T30",
+      "entry_time": "2026-01-25 05:33:32",
+      "entry_price": 12.14,
+      "side": "LONG",
+      "stop_price": 12.10342,
+      "size": 531.84,
+      "exit_price": null,
+      "close_time": "2026-01-25 06:00:03",
+      "pnl": -19.454,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 26
+    },
+    "T31": {
+      "trade_id": "T31",
+      "entry_time": "2026-01-25 07:03:04",
+      "entry_price": 12.12,
+      "side": "LONG",
+      "stop_price": 12.08775,
+      "size": 591.12,
+      "exit_price": null,
+      "close_time": "2026-01-25 07:09:18",
+      "pnl": -19.0648,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 6
+    },
+    "T32": {
+      "trade_id": "T32",
+      "entry_time": "2026-01-25 07:09:19",
+      "entry_price": 12.08,
+      "side": "SHORT",
+      "stop_price": 12.11618,
+      "size": 516.45,
+      "exit_price": null,
+      "close_time": "2026-01-25 07:24:06",
+      "pnl": 13.0783,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.04382,
+          "time": "2026-01-25 07:21:07"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 14
+    },
+    "T33": {
+      "trade_id": "T33",
+      "entry_time": "2026-01-25 09:39:21",
+      "entry_price": 12.04,
+      "side": "SHORT",
+      "stop_price": 12.07844,
+      "size": 492.79,
+      "exit_price": null,
+      "close_time": "2026-01-25 09:51:16",
+      "pnl": 13.2614,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.00156,
+          "time": "2026-01-25 09:48:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 11
+    },
+    "T34": {
+      "trade_id": "T34",
+      "entry_time": "2026-01-25 13:15:15",
+      "entry_price": 12.07,
+      "side": "SHORT",
+      "stop_price": 12.10468,
+      "size": 553.98,
+      "exit_price": null,
+      "close_time": "2026-01-25 14:06:27",
+      "pnl": -19.2102,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 51
+    },
+    "T35": {
+      "trade_id": "T35",
+      "entry_time": "2026-01-25 20:24:09",
+      "entry_price": 11.51,
+      "side": "SHORT",
+      "stop_price": 11.58954,
+      "size": 236.69,
+      "exit_price": null,
+      "close_time": "2026-01-25 21:03:18",
+      "pnl": 13.1776,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.43046,
+          "time": "2026-01-25 20:54:08"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 39
+    },
+    "T36": {
+      "trade_id": "T36",
+      "entry_time": "2026-01-25 21:00:08",
+      "entry_price": 11.43,
+      "side": "SHORT",
+      "stop_price": 11.52269,
+      "size": 203.1,
+      "exit_price": null,
+      "close_time": "2026-01-25 22:09:29",
+      "pnl": -18.826,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 69
+    },
+    "T37": {
+      "trade_id": "T37",
+      "entry_time": "2026-01-25 23:54:24",
+      "entry_price": 11.41,
+      "side": "SHORT",
+      "stop_price": 11.47744,
+      "size": 277.48,
+      "exit_price": null,
+      "close_time": "2026-01-26 00:03:21",
+      "pnl": -18.7132,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 8
+    },
+    "T38": {
+      "trade_id": "T38",
+      "entry_time": "2026-01-26 09:30:24",
+      "entry_price": 11.92,
+      "side": "LONG",
+      "stop_price": 11.86055,
+      "size": 308.48,
+      "exit_price": null,
+      "close_time": "2026-01-26 09:48:29",
+      "pnl": -18.3389,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 18
+    },
+    "T39": {
+      "trade_id": "T39",
+      "entry_time": "2026-01-26 15:39:04",
+      "entry_price": 11.97,
+      "side": "LONG",
+      "stop_price": 11.89776,
+      "size": 248.78,
+      "exit_price": null,
+      "close_time": "2026-01-26 16:33:08",
+      "pnl": 20.6664,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.04224,
+          "time": "2026-01-26 16:12:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 54
+    },
+    "T40": {
+      "trade_id": "T40",
+      "entry_time": "2026-01-26 17:57:18",
+      "entry_price": 11.95,
+      "side": "LONG",
+      "stop_price": 11.86488,
+      "size": 216.0,
+      "exit_price": null,
+      "close_time": "2026-01-26 18:21:14",
+      "pnl": -18.3852,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 23
+    },
+    "T41": {
+      "trade_id": "T41",
+      "entry_time": "2026-01-27 02:36:16",
+      "entry_price": 12.0,
+      "side": "LONG",
+      "stop_price": 11.96103,
+      "size": 462.35,
+      "exit_price": null,
+      "close_time": "2026-01-27 03:12:12",
+      "pnl": 12.6124,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 12.03897,
+          "time": "2026-01-27 03:06:13"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 35
+    },
+    "T42": {
+      "trade_id": "T42",
+      "entry_time": "2026-01-27 03:06:13",
+      "entry_price": 12.05,
+      "side": "LONG",
+      "stop_price": 12.0065,
+      "size": 414.24,
+      "exit_price": null,
+      "close_time": "2026-01-27 03:12:12",
+      "pnl": -18.0177,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T43": {
+      "trade_id": "T43",
+      "entry_time": "2026-01-27 03:42:13",
+      "entry_price": 12.06,
+      "side": "LONG",
+      "stop_price": 12.02028,
+      "size": 450.87,
+      "exit_price": null,
+      "close_time": "2026-01-27 04:15:01",
+      "pnl": -17.9093,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 32
+    },
+    "T44": {
+      "trade_id": "T44",
+      "entry_time": "2026-01-27 04:48:26",
+      "entry_price": 12.0,
+      "side": "SHORT",
+      "stop_price": 12.03676,
+      "size": 477.4,
+      "exit_price": null,
+      "close_time": "2026-01-27 05:12:10",
+      "pnl": -17.551,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 23
+    },
+    "T45": {
+      "trade_id": "T45",
+      "entry_time": "2026-01-27 09:09:19",
+      "entry_price": 12.01,
+      "side": "LONG",
+      "stop_price": 11.97393,
+      "size": 476.84,
+      "exit_price": null,
+      "close_time": "2026-01-27 09:15:12",
+      "pnl": -17.2004,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T46": {
+      "trade_id": "T46",
+      "entry_time": "2026-01-27 10:09:12",
+      "entry_price": 11.92,
+      "side": "SHORT",
+      "stop_price": 11.95737,
+      "size": 451.12,
+      "exit_price": null,
+      "close_time": "2026-01-27 11:03:12",
+      "pnl": 11.7994,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.88263,
+          "time": "2026-01-27 10:54:14"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 54
+    },
+    "T47": {
+      "trade_id": "T47",
+      "entry_time": "2026-01-27 14:54:18",
+      "entry_price": 11.86,
+      "side": "SHORT",
+      "stop_price": 11.89778,
+      "size": 452.41,
+      "exit_price": null,
+      "close_time": "2026-01-27 15:06:15",
+      "pnl": -17.0923,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T48": {
+      "trade_id": "T48",
+      "entry_time": "2026-01-27 15:21:13",
+      "entry_price": 11.96,
+      "side": "LONG",
+      "stop_price": 11.91138,
+      "size": 344.54,
+      "exit_price": null,
+      "close_time": "2026-01-27 15:36:11",
+      "pnl": -16.7505,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 14
+    },
+    "T49": {
+      "trade_id": "T49",
+      "entry_time": "2026-01-27 16:33:27",
+      "entry_price": 11.89,
+      "side": "SHORT",
+      "stop_price": 11.96284,
+      "size": 225.36,
+      "exit_price": null,
+      "close_time": "2026-01-27 16:51:18",
+      "pnl": -16.4151,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 17
+    },
+    "T50": {
+      "trade_id": "T50",
+      "entry_time": "2026-01-28 01:03:06",
+      "entry_price": 12.03,
+      "side": "SHORT",
+      "stop_price": 12.07941,
+      "size": 325.57,
+      "exit_price": null,
+      "close_time": "2026-01-28 01:51:21",
+      "pnl": 11.2607,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.98059,
+          "time": "2026-01-28 01:39:07"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 48
+    },
+    "T51": {
+      "trade_id": "T51",
+      "entry_time": "2026-01-28 05:15:12",
+      "entry_price": 11.92,
+      "side": "SHORT",
+      "stop_price": 11.96642,
+      "size": 351.43,
+      "exit_price": null,
+      "close_time": "2026-01-28 07:33:08",
+      "pnl": -16.3126,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 137
+    },
+    "T52": {
+      "trade_id": "T52",
+      "entry_time": "2026-01-28 07:00:16",
+      "entry_price": 11.93,
+      "side": "SHORT",
+      "stop_price": 11.97609,
+      "size": 353.91,
+      "exit_price": null,
+      "close_time": "2026-01-28 07:51:20",
+      "pnl": -16.3123,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 51
+    },
+    "T53": {
+      "trade_id": "T53",
+      "entry_time": "2026-01-28 09:30:15",
+      "entry_price": 11.92,
+      "side": "SHORT",
+      "stop_price": 11.96337,
+      "size": 361.09,
+      "exit_price": null,
+      "close_time": "2026-01-28 10:30:09",
+      "pnl": 10.9616,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.87663,
+          "time": "2026-01-28 10:21:06"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 59
+    },
+    "T54": {
+      "trade_id": "T54",
+      "entry_time": "2026-01-28 10:15:10",
+      "entry_price": 11.89,
+      "side": "SHORT",
+      "stop_price": 11.93158,
+      "size": 376.59,
+      "exit_price": null,
+      "close_time": "2026-01-28 10:39:23",
+      "pnl": -15.6595,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 24
+    },
+    "T55": {
+      "trade_id": "T55",
+      "entry_time": "2026-01-28 12:51:14",
+      "entry_price": 12.02,
+      "side": "LONG",
+      "stop_price": 11.97219,
+      "size": 325.57,
+      "exit_price": null,
+      "close_time": "2026-01-28 13:27:17",
+      "pnl": -15.5652,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 36
+    },
+    "T56": {
+      "trade_id": "T56",
+      "entry_time": "2026-01-28 16:15:26",
+      "entry_price": 11.75,
+      "side": "SHORT",
+      "stop_price": 11.83431,
+      "size": 180.93,
+      "exit_price": null,
+      "close_time": "2026-01-28 18:51:06",
+      "pnl": -15.2544,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 155
+    },
+    "T57": {
+      "trade_id": "T57",
+      "entry_time": "2026-01-28 17:15:11",
+      "entry_price": 11.71,
+      "side": "SHORT",
+      "stop_price": 11.77792,
+      "size": 224.59,
+      "exit_price": null,
+      "close_time": "2026-01-28 17:30:11",
+      "pnl": -15.2535,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 15
+    },
+    "T58": {
+      "trade_id": "T58",
+      "entry_time": "2026-01-28 18:57:24",
+      "entry_price": 11.87,
+      "side": "LONG",
+      "stop_price": 11.79377,
+      "size": 192.1,
+      "exit_price": null,
+      "close_time": "2026-01-28 19:03:14",
+      "pnl": -14.6433,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T59": {
+      "trade_id": "T59",
+      "entry_time": "2026-01-28 20:33:09",
+      "entry_price": 11.82,
+      "side": "LONG",
+      "stop_price": 11.7507,
+      "size": 207.11,
+      "exit_price": null,
+      "close_time": "2026-01-28 21:06:19",
+      "pnl": 10.0461,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.8893,
+          "time": "2026-01-28 21:03:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 33
+    },
+    "T60": {
+      "trade_id": "T60",
+      "entry_time": "2026-01-29 02:45:22",
+      "entry_price": 11.81,
+      "side": "LONG",
+      "stop_price": 11.75203,
+      "size": 251.05,
+      "exit_price": null,
+      "close_time": "2026-01-29 02:57:27",
+      "pnl": -14.5526,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T61": {
+      "trade_id": "T61",
+      "entry_time": "2026-01-29 03:39:07",
+      "entry_price": 11.7,
+      "side": "SHORT",
+      "stop_price": 11.77473,
+      "size": 190.83,
+      "exit_price": null,
+      "close_time": "2026-01-29 04:00:19",
+      "pnl": 9.9828,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.62527,
+          "time": "2026-01-29 03:51:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 21
+    },
+    "T62": {
+      "trade_id": "T62",
+      "entry_time": "2026-01-29 09:03:09",
+      "entry_price": 11.62,
+      "side": "SHORT",
+      "stop_price": 11.66235,
+      "size": 341.51,
+      "exit_price": null,
+      "close_time": "2026-01-29 09:24:04",
+      "pnl": 10.1228,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.57765,
+          "time": "2026-01-29 09:18:23"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 20
+    },
+    "T63": {
+      "trade_id": "T63",
+      "entry_time": "2026-01-29 12:24:03",
+      "entry_price": 11.53,
+      "side": "SHORT",
+      "stop_price": 11.57048,
+      "size": 362.22,
+      "exit_price": null,
+      "close_time": "2026-01-29 13:33:06",
+      "pnl": -14.6636,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 69
+    },
+    "T64": {
+      "trade_id": "T64",
+      "entry_time": "2026-01-29 19:21:18",
+      "entry_price": 10.94,
+      "side": "SHORT",
+      "stop_price": 11.02437,
+      "size": 170.33,
+      "exit_price": null,
+      "close_time": "2026-01-29 20:18:16",
+      "pnl": 10.0592,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.85563,
+          "time": "2026-01-29 19:54:06"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 56
+    },
+    "T65": {
+      "trade_id": "T65",
+      "entry_time": "2026-01-29 19:54:07",
+      "entry_price": 10.86,
+      "side": "SHORT",
+      "stop_price": 10.94826,
+      "size": 162.82,
+      "exit_price": null,
+      "close_time": "2026-01-29 20:33:06",
+      "pnl": -14.3692,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 38
+    },
+    "T66": {
+      "trade_id": "T66",
+      "entry_time": "2026-01-30 02:24:16",
+      "entry_price": 11.09,
+      "side": "SHORT",
+      "stop_price": 11.13854,
+      "size": 294.25,
+      "exit_price": null,
+      "close_time": "2026-01-30 02:42:11",
+      "pnl": 27.1396,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 11.04146,
+          "time": "2026-01-30 02:39:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 17
+    },
+    "T67": {
+      "trade_id": "T67",
+      "entry_time": "2026-01-30 09:36:12",
+      "entry_price": 10.73,
+      "side": "SHORT",
+      "stop_price": 10.80128,
+      "size": 208.0,
+      "exit_price": null,
+      "close_time": "2026-01-30 10:03:10",
+      "pnl": -14.8265,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 26
+    },
+    "T68": {
+      "trade_id": "T68",
+      "entry_time": "2026-01-30 10:45:06",
+      "entry_price": 10.81,
+      "side": "LONG",
+      "stop_price": 10.74964,
+      "size": 240.71,
+      "exit_price": null,
+      "close_time": "2026-01-30 10:54:02",
+      "pnl": -14.5301,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 8
+    },
+    "T69": {
+      "trade_id": "T69",
+      "entry_time": "2026-01-30 15:39:13",
+      "entry_price": 10.76,
+      "side": "LONG",
+      "stop_price": 10.67657,
+      "size": 170.67,
+      "exit_price": null,
+      "close_time": "2026-01-30 16:30:08",
+      "pnl": -14.2383,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 50
+    },
+    "T70": {
+      "trade_id": "T70",
+      "entry_time": "2026-01-30 16:45:22",
+      "entry_price": 10.82,
+      "side": "LONG",
+      "stop_price": 10.71108,
+      "size": 128.12,
+      "exit_price": null,
+      "close_time": "2026-01-30 17:27:14",
+      "pnl": -13.9539,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 41
+    },
+    "T71": {
+      "trade_id": "T71",
+      "entry_time": "2026-01-30 17:39:05",
+      "entry_price": 10.84,
+      "side": "LONG",
+      "stop_price": 10.73579,
+      "size": 131.23,
+      "exit_price": null,
+      "close_time": "2026-01-30 18:06:19",
+      "pnl": -13.6743,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 27
+    },
+    "T72": {
+      "trade_id": "T72",
+      "entry_time": "2026-01-31 07:27:08",
+      "entry_price": 10.66,
+      "side": "SHORT",
+      "stop_price": 10.70513,
+      "size": 296.96,
+      "exit_price": null,
+      "close_time": "2026-01-31 09:03:07",
+      "pnl": 15.412,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.61487,
+          "time": "2026-01-31 08:36:08"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 95
+    },
+    "T73": {
+      "trade_id": "T73",
+      "entry_time": "2026-01-31 09:18:01",
+      "entry_price": 10.51,
+      "side": "SHORT",
+      "stop_price": 10.57421,
+      "size": 213.53,
+      "exit_price": null,
+      "close_time": "2026-01-31 09:57:29",
+      "pnl": 15.7663,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.44579,
+          "time": "2026-01-31 09:36:09"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 39
+    },
+    "T74": {
+      "trade_id": "T74",
+      "entry_time": "2026-01-31 13:15:23",
+      "entry_price": 10.46,
+      "side": "SHORT",
+      "stop_price": 10.5077,
+      "size": 294.03,
+      "exit_price": null,
+      "close_time": "2026-01-31 15:12:05",
+      "pnl": 26.6489,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.4123,
+          "time": "2026-01-31 14:15:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 116
+    },
+    "T75": {
+      "trade_id": "T75",
+      "entry_time": "2026-01-31 14:00:07",
+      "entry_price": 10.44,
+      "side": "SHORT",
+      "stop_price": 10.50072,
+      "size": 230.98,
+      "exit_price": null,
+      "close_time": "2026-01-31 15:21:12",
+      "pnl": 26.6478,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.37928,
+          "time": "2026-01-31 14:33:10"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 81
+    },
+    "T76": {
+      "trade_id": "T76",
+      "entry_time": "2026-01-31 15:18:18",
+      "entry_price": 10.27,
+      "side": "SHORT",
+      "stop_price": 10.34573,
+      "size": 192.26,
+      "exit_price": null,
+      "close_time": "2026-01-31 15:27:03",
+      "pnl": 27.6612,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 10.19427,
+          "time": "2026-01-31 15:24:07"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 8
+    },
+    "T77": {
+      "trade_id": "T77",
+      "entry_time": "2026-01-31 17:24:14",
+      "entry_price": 10.16,
+      "side": "LONG",
+      "stop_price": 10.05357,
+      "size": 146.99,
+      "exit_price": null,
+      "close_time": "2026-01-31 17:36:06",
+      "pnl": -15.6448,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T78": {
+      "trade_id": "T78",
+      "entry_time": "2026-02-01 03:48:18",
+      "entry_price": 10.07,
+      "side": "LONG",
+      "stop_price": 10.01138,
+      "size": 261.57,
+      "exit_price": null,
+      "close_time": "2026-02-01 04:21:22",
+      "pnl": -15.3314,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 33
+    },
+    "T79": {
+      "trade_id": "T79",
+      "entry_time": "2026-02-01 05:15:03",
+      "entry_price": 10.07,
+      "side": "LONG",
+      "stop_price": 10.02359,
+      "size": 323.74,
+      "exit_price": null,
+      "close_time": "2026-02-01 05:36:18",
+      "pnl": -15.0254,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 21
+    },
+    "T80": {
+      "trade_id": "T80",
+      "entry_time": "2026-02-01 06:45:10",
+      "entry_price": 9.97,
+      "side": "SHORT",
+      "stop_price": 10.02374,
+      "size": 274.0,
+      "exit_price": null,
+      "close_time": "2026-02-01 07:24:09",
+      "pnl": -14.7252,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 38
+    },
+    "T81": {
+      "trade_id": "T81",
+      "entry_time": "2026-02-01 17:36:24",
+      "entry_price": 9.54,
+      "side": "LONG",
+      "stop_price": 9.4092,
+      "size": 110.32,
+      "exit_price": null,
+      "close_time": "2026-02-01 18:51:06",
+      "pnl": -14.4287,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 74
+    },
+    "T82": {
+      "trade_id": "T82",
+      "entry_time": "2026-02-01 20:48:11",
+      "entry_price": 9.51,
+      "side": "SHORT",
+      "stop_price": 9.58829,
+      "size": 180.63,
+      "exit_price": null,
+      "close_time": "2026-02-01 21:33:14",
+      "pnl": 9.8989,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.43171,
+          "time": "2026-02-01 21:30:25"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 45
+    },
+    "T83": {
+      "trade_id": "T83",
+      "entry_time": "2026-02-01 21:42:04",
+      "entry_price": 9.63,
+      "side": "LONG",
+      "stop_price": 9.53455,
+      "size": 150.23,
+      "exit_price": null,
+      "close_time": "2026-02-01 21:54:17",
+      "pnl": -14.3386,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T84": {
+      "trade_id": "T84",
+      "entry_time": "2026-02-01 23:00:23",
+      "entry_price": 9.47,
+      "side": "SHORT",
+      "stop_price": 9.55737,
+      "size": 160.85,
+      "exit_price": null,
+      "close_time": "2026-02-01 23:12:07",
+      "pnl": -14.0521,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T85": {
+      "trade_id": "T85",
+      "entry_time": "2026-02-02 05:27:02",
+      "entry_price": 9.46,
+      "side": "LONG",
+      "stop_price": 9.30481,
+      "size": 88.74,
+      "exit_price": null,
+      "close_time": "2026-02-02 06:06:02",
+      "pnl": -13.7703,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 39
+    },
+    "T86": {
+      "trade_id": "T86",
+      "entry_time": "2026-02-02 07:51:01",
+      "entry_price": 9.3,
+      "side": "LONG",
+      "stop_price": 9.12484,
+      "size": 77.05,
+      "exit_price": null,
+      "close_time": "2026-02-02 09:00:10",
+      "pnl": 9.4464,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.47516,
+          "time": "2026-02-02 08:48:06"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 69
+    },
+    "T87": {
+      "trade_id": "T87",
+      "entry_time": "2026-02-02 10:30:09",
+      "entry_price": 9.55,
+      "side": "LONG",
+      "stop_price": 9.45756,
+      "size": 148.05,
+      "exit_price": null,
+      "close_time": "2026-02-02 10:54:11",
+      "pnl": 9.5801,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.64244,
+          "time": "2026-02-02 10:51:08"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 24
+    },
+    "T88": {
+      "trade_id": "T88",
+      "entry_time": "2026-02-02 13:18:30",
+      "entry_price": 9.6,
+      "side": "LONG",
+      "stop_price": 9.53844,
+      "size": 225.43,
+      "exit_price": null,
+      "close_time": "2026-02-02 13:30:08",
+      "pnl": 9.7137,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.66156,
+          "time": "2026-02-02 13:27:12"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 11
+    },
+    "T89": {
+      "trade_id": "T89",
+      "entry_time": "2026-02-02 14:24:14",
+      "entry_price": 9.68,
+      "side": "LONG",
+      "stop_price": 9.61606,
+      "size": 220.06,
+      "exit_price": null,
+      "close_time": "2026-02-02 15:12:28",
+      "pnl": -14.0717,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 48
+    },
+    "T90": {
+      "trade_id": "T90",
+      "entry_time": "2026-02-02 15:33:06",
+      "entry_price": 9.76,
+      "side": "LONG",
+      "stop_price": 9.67447,
+      "size": 161.22,
+      "exit_price": null,
+      "close_time": "2026-02-02 15:39:01",
+      "pnl": 9.652,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.84553,
+          "time": "2026-02-02 15:36:16"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 5
+    },
+    "T91": {
+      "trade_id": "T91",
+      "entry_time": "2026-02-02 16:18:19",
+      "entry_price": 9.88,
+      "side": "LONG",
+      "stop_price": 9.76593,
+      "size": 122.58,
+      "exit_price": null,
+      "close_time": "2026-02-02 16:45:11",
+      "pnl": 9.7875,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.99407,
+          "time": "2026-02-02 16:42:05"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 26
+    },
+    "T92": {
+      "trade_id": "T92",
+      "entry_time": "2026-02-02 21:03:08",
+      "entry_price": 9.79,
+      "side": "SHORT",
+      "stop_price": 9.85236,
+      "size": 227.37,
+      "exit_price": null,
+      "close_time": "2026-02-02 22:00:16",
+      "pnl": 9.9248,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.72764,
+          "time": "2026-02-02 21:36:02"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 57
+    },
+    "T93": {
+      "trade_id": "T93",
+      "entry_time": "2026-02-02 21:36:03",
+      "entry_price": 9.72,
+      "side": "SHORT",
+      "stop_price": 9.78595,
+      "size": 215.0,
+      "exit_price": null,
+      "close_time": "2026-02-02 22:03:11",
+      "pnl": -14.179,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 27
+    },
+    "T94": {
+      "trade_id": "T94",
+      "entry_time": "2026-02-03 06:42:15",
+      "entry_price": 9.73,
+      "side": "SHORT",
+      "stop_price": 9.78586,
+      "size": 252.3,
+      "exit_price": null,
+      "close_time": "2026-02-03 07:21:14",
+      "pnl": 9.8658,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.67414,
+          "time": "2026-02-03 07:09:12"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 38
+    },
+    "T95": {
+      "trade_id": "T95",
+      "entry_time": "2026-02-03 08:36:08",
+      "entry_price": 9.79,
+      "side": "LONG",
+      "stop_price": 9.72694,
+      "size": 226.63,
+      "exit_price": null,
+      "close_time": "2026-02-03 09:03:05",
+      "pnl": -14.2903,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 26
+    },
+    "T96": {
+      "trade_id": "T96",
+      "entry_time": "2026-02-03 13:18:09",
+      "entry_price": 9.62,
+      "side": "LONG",
+      "stop_price": 9.56247,
+      "size": 243.44,
+      "exit_price": null,
+      "close_time": "2026-02-03 14:24:07",
+      "pnl": 9.8034,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.67753,
+          "time": "2026-02-03 13:48:20"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 65
+    },
+    "T97": {
+      "trade_id": "T97",
+      "entry_time": "2026-02-03 15:39:09",
+      "entry_price": 9.62,
+      "side": "SHORT",
+      "stop_price": 9.68989,
+      "size": 203.18,
+      "exit_price": null,
+      "close_time": "2026-02-03 16:06:28",
+      "pnl": 9.9408,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.55011,
+          "time": "2026-02-03 15:57:03"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 27
+    },
+    "T98": {
+      "trade_id": "T98",
+      "entry_time": "2026-02-03 18:42:19",
+      "entry_price": 9.35,
+      "side": "SHORT",
+      "stop_price": 9.44353,
+      "size": 153.96,
+      "exit_price": null,
+      "close_time": "2026-02-03 20:12:06",
+      "pnl": 16.5583,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.25647,
+          "time": "2026-02-03 19:15:12"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 89
+    },
+    "T99": {
+      "trade_id": "T99",
+      "entry_time": "2026-02-03 19:09:02",
+      "entry_price": 9.32,
+      "side": "SHORT",
+      "stop_price": 9.41773,
+      "size": 147.35,
+      "exit_price": null,
+      "close_time": "2026-02-03 20:12:06",
+      "pnl": 16.559,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.22227,
+          "time": "2026-02-03 19:21:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 63
+    },
+    "T100": {
+      "trade_id": "T100",
+      "entry_time": "2026-02-04 02:06:06",
+      "entry_price": 9.64,
+      "side": "LONG",
+      "stop_price": 9.56718,
+      "size": 206.83,
+      "exit_price": null,
+      "close_time": "2026-02-04 03:42:19",
+      "pnl": -15.0623,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 96
+    },
+    "T101": {
+      "trade_id": "T101",
+      "entry_time": "2026-02-04 03:33:12",
+      "entry_price": 9.6,
+      "side": "SHORT",
+      "stop_price": 9.66311,
+      "size": 238.67,
+      "exit_price": null,
+      "close_time": "2026-02-04 04:12:03",
+      "pnl": -15.0618,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 38
+    },
+    "T102": {
+      "trade_id": "T102",
+      "entry_time": "2026-02-04 04:18:06",
+      "entry_price": 9.69,
+      "side": "LONG",
+      "stop_price": 9.62417,
+      "size": 219.65,
+      "exit_price": null,
+      "close_time": "2026-02-04 04:45:03",
+      "pnl": 10.1218,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.75583,
+          "time": "2026-02-04 04:39:05"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 26
+    },
+    "T103": {
+      "trade_id": "T103",
+      "entry_time": "2026-02-04 04:39:05",
+      "entry_price": 9.76,
+      "side": "LONG",
+      "stop_price": 9.68989,
+      "size": 206.24,
+      "exit_price": null,
+      "close_time": "2026-02-04 05:48:22",
+      "pnl": -14.4601,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 69
+    },
+    "T104": {
+      "trade_id": "T104",
+      "entry_time": "2026-02-04 09:51:09",
+      "entry_price": 9.73,
+      "side": "LONG",
+      "stop_price": 9.67329,
+      "size": 253.44,
+      "exit_price": null,
+      "close_time": "2026-02-04 10:15:16",
+      "pnl": -14.3725,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 24
+    },
+    "T105": {
+      "trade_id": "T105",
+      "entry_time": "2026-02-04 12:06:04",
+      "entry_price": 9.52,
+      "side": "SHORT",
+      "stop_price": 9.57402,
+      "size": 260.77,
+      "exit_price": null,
+      "close_time": "2026-02-04 12:27:02",
+      "pnl": -14.0851,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 20
+    },
+    "T106": {
+      "trade_id": "T106",
+      "entry_time": "2026-02-04 14:36:04",
+      "entry_price": 9.52,
+      "side": "SHORT",
+      "stop_price": 9.57784,
+      "size": 238.67,
+      "exit_price": null,
+      "close_time": "2026-02-04 15:33:04",
+      "pnl": 26.2268,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.46216,
+          "time": "2026-02-04 14:48:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 57
+    },
+    "T107": {
+      "trade_id": "T107",
+      "entry_time": "2026-02-04 15:33:06",
+      "entry_price": 9.33,
+      "side": "SHORT",
+      "stop_price": 9.4101,
+      "size": 178.89,
+      "exit_price": null,
+      "close_time": "2026-02-04 15:39:05",
+      "pnl": -14.3276,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T108": {
+      "trade_id": "T108",
+      "entry_time": "2026-02-04 16:00:11",
+      "entry_price": 9.23,
+      "side": "SHORT",
+      "stop_price": 9.34654,
+      "size": 120.48,
+      "exit_price": null,
+      "close_time": "2026-02-04 16:12:08",
+      "pnl": -14.0413,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T109": {
+      "trade_id": "T109",
+      "entry_time": "2026-02-04 17:42:19",
+      "entry_price": 9.09,
+      "side": "SHORT",
+      "stop_price": 9.21255,
+      "size": 112.29,
+      "exit_price": null,
+      "close_time": "2026-02-04 18:15:07",
+      "pnl": -13.7606,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 32
+    },
+    "T110": {
+      "trade_id": "T110",
+      "entry_time": "2026-02-04 19:12:03",
+      "entry_price": 9.11,
+      "side": "SHORT",
+      "stop_price": 9.22722,
+      "size": 115.05,
+      "exit_price": null,
+      "close_time": "2026-02-04 19:30:20",
+      "pnl": -13.4859,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 18
+    },
+    "T111": {
+      "trade_id": "T111",
+      "entry_time": "2026-02-04 22:45:12",
+      "entry_price": 9.21,
+      "side": "SHORT",
+      "stop_price": 9.29197,
+      "size": 161.23,
+      "exit_price": null,
+      "close_time": "2026-02-04 23:18:22",
+      "pnl": 9.2509,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.12803,
+          "time": "2026-02-04 23:06:13"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 33
+    },
+    "T112": {
+      "trade_id": "T112",
+      "entry_time": "2026-02-05 00:21:23",
+      "entry_price": 9.25,
+      "side": "LONG",
+      "stop_price": 9.14046,
+      "size": 122.34,
+      "exit_price": null,
+      "close_time": "2026-02-05 03:18:06",
+      "pnl": -13.4006,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 176
+    },
+    "T113": {
+      "trade_id": "T113",
+      "entry_time": "2026-02-05 02:24:09",
+      "entry_price": 9.16,
+      "side": "SHORT",
+      "stop_price": 9.24113,
+      "size": 165.17,
+      "exit_price": null,
+      "close_time": "2026-02-05 02:27:01",
+      "pnl": -13.4001,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 2
+    },
+    "T114": {
+      "trade_id": "T114",
+      "entry_time": "2026-02-05 02:39:22",
+      "entry_price": 9.33,
+      "side": "LONG",
+      "stop_price": 9.23085,
+      "size": 132.46,
+      "exit_price": null,
+      "close_time": "2026-02-05 02:42:10",
+      "pnl": -13.1333,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 2
+    },
+    "T115": {
+      "trade_id": "T115",
+      "entry_time": "2026-02-05 03:57:14",
+      "entry_price": 9.18,
+      "side": "SHORT",
+      "stop_price": 9.27623,
+      "size": 130.96,
+      "exit_price": null,
+      "close_time": "2026-02-05 05:12:03",
+      "pnl": 8.8213,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.08377,
+          "time": "2026-02-05 05:00:03"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 74
+    },
+    "T116": {
+      "trade_id": "T116",
+      "entry_time": "2026-02-05 06:42:03",
+      "entry_price": 9.19,
+      "side": "LONG",
+      "stop_price": 9.0804,
+      "size": 116.59,
+      "exit_price": null,
+      "close_time": "2026-02-05 07:06:25",
+      "pnl": -12.7787,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 24
+    },
+    "T117": {
+      "trade_id": "T117",
+      "entry_time": "2026-02-05 10:12:20",
+      "entry_price": 9.22,
+      "side": "LONG",
+      "stop_price": 9.14502,
+      "size": 167.03,
+      "exit_price": null,
+      "close_time": "2026-02-05 11:06:17",
+      "pnl": -12.5235,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 53
+    },
+    "T118": {
+      "trade_id": "T118",
+      "entry_time": "2026-02-05 13:39:16",
+      "entry_price": 8.91,
+      "side": "LONG",
+      "stop_price": 8.80147,
+      "size": 113.09,
+      "exit_price": null,
+      "close_time": "2026-02-05 15:39:20",
+      "pnl": 8.591,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.01853,
+          "time": "2026-02-05 15:36:27"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 120
+    },
+    "T119": {
+      "trade_id": "T119",
+      "entry_time": "2026-02-05 13:57:18",
+      "entry_price": 8.94,
+      "side": "LONG",
+      "stop_price": 8.83503,
+      "size": 116.91,
+      "exit_price": null,
+      "close_time": "2026-02-05 14:30:08",
+      "pnl": -12.2724,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 32
+    },
+    "T120": {
+      "trade_id": "T120",
+      "entry_time": "2026-02-05 17:27:03",
+      "entry_price": 8.58,
+      "side": "LONG",
+      "stop_price": 8.38857,
+      "size": 63.72,
+      "exit_price": null,
+      "close_time": "2026-02-05 18:18:01",
+      "pnl": -12.1962,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 50
+    },
+    "T121": {
+      "trade_id": "T121",
+      "entry_time": "2026-02-05 21:21:07",
+      "entry_price": 8.1,
+      "side": "SHORT",
+      "stop_price": 8.22787,
+      "size": 93.49,
+      "exit_price": null,
+      "close_time": "2026-02-05 21:30:27",
+      "pnl": 8.3674,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 7.97213,
+          "time": "2026-02-05 21:27:03"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 9
+    },
+    "T122": {
+      "trade_id": "T122",
+      "entry_time": "2026-02-05 22:00:23",
+      "entry_price": 8.0,
+      "side": "SHORT",
+      "stop_price": 8.1728,
+      "size": 70.15,
+      "exit_price": null,
+      "close_time": "2026-02-05 22:06:04",
+      "pnl": -12.1221,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T123": {
+      "trade_id": "T123",
+      "entry_time": "2026-02-06 12:18:21",
+      "entry_price": 8.3,
+      "side": "LONG",
+      "stop_price": 8.2308,
+      "size": 171.69,
+      "exit_price": null,
+      "close_time": "2026-02-06 15:09:09",
+      "pnl": 13.6611,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.3692,
+          "time": "2026-02-06 14:12:20"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 170
+    },
+    "T124": {
+      "trade_id": "T124",
+      "entry_time": "2026-02-06 18:21:14",
+      "entry_price": 8.89,
+      "side": "LONG",
+      "stop_price": 8.79604,
+      "size": 129.35,
+      "exit_price": null,
+      "close_time": "2026-02-06 18:36:19",
+      "pnl": 8.5069,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.98396,
+          "time": "2026-02-06 18:33:02"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 15
+    },
+    "T125": {
+      "trade_id": "T125",
+      "entry_time": "2026-02-06 21:39:08",
+      "entry_price": 8.87,
+      "side": "LONG",
+      "stop_price": 8.77979,
+      "size": 136.61,
+      "exit_price": null,
+      "close_time": "2026-02-06 23:45:13",
+      "pnl": 8.6263,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.96021,
+          "time": "2026-02-06 23:39:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 126
+    },
+    "T126": {
+      "trade_id": "T126",
+      "entry_time": "2026-02-06 22:09:13",
+      "entry_price": 8.82,
+      "side": "SHORT",
+      "stop_price": 8.90538,
+      "size": 144.33,
+      "exit_price": null,
+      "close_time": "2026-02-06 23:12:18",
+      "pnl": -12.3235,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 63
+    },
+    "T127": {
+      "trade_id": "T127",
+      "entry_time": "2026-02-06 23:06:19",
+      "entry_price": 8.9,
+      "side": "LONG",
+      "stop_price": 8.83384,
+      "size": 186.26,
+      "exit_price": null,
+      "close_time": "2026-02-06 23:42:09",
+      "pnl": 8.6262,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.96616,
+          "time": "2026-02-06 23:39:18"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 35
+    },
+    "T128": {
+      "trade_id": "T128",
+      "entry_time": "2026-02-07 02:27:19",
+      "entry_price": 8.86,
+      "side": "LONG",
+      "stop_price": 8.7846,
+      "size": 164.74,
+      "exit_price": null,
+      "close_time": "2026-02-07 04:42:21",
+      "pnl": 8.6952,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.9354,
+          "time": "2026-02-07 04:12:23"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 135
+    },
+    "T129": {
+      "trade_id": "T129",
+      "entry_time": "2026-02-07 22:00:27",
+      "entry_price": 9.02,
+      "side": "LONG",
+      "stop_price": 8.96201,
+      "size": 217.23,
+      "exit_price": null,
+      "close_time": "2026-02-07 22:48:16",
+      "pnl": -12.5958,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 47
+    },
+    "T130": {
+      "trade_id": "T130",
+      "entry_time": "2026-02-07 23:27:19",
+      "entry_price": 8.94,
+      "side": "SHORT",
+      "stop_price": 8.99197,
+      "size": 237.53,
+      "exit_price": null,
+      "close_time": "2026-02-08 00:48:05",
+      "pnl": 8.6407,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.88803,
+          "time": "2026-02-08 00:09:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 80
+    },
+    "T131": {
+      "trade_id": "T131",
+      "entry_time": "2026-02-08 01:24:14",
+      "entry_price": 8.86,
+      "side": "SHORT",
+      "stop_price": 8.91038,
+      "size": 248.43,
+      "exit_price": null,
+      "close_time": "2026-02-08 02:06:26",
+      "pnl": -12.5171,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 42
+    },
+    "T132": {
+      "trade_id": "T132",
+      "entry_time": "2026-02-08 03:03:08",
+      "entry_price": 8.93,
+      "side": "LONG",
+      "stop_price": 8.87975,
+      "size": 244.11,
+      "exit_price": null,
+      "close_time": "2026-02-08 03:42:04",
+      "pnl": -12.2667,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 38
+    },
+    "T133": {
+      "trade_id": "T133",
+      "entry_time": "2026-02-08 03:21:13",
+      "entry_price": 8.96,
+      "side": "LONG",
+      "stop_price": 8.90953,
+      "size": 243.05,
+      "exit_price": null,
+      "close_time": "2026-02-08 03:36:06",
+      "pnl": -12.2668,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 14
+    },
+    "T134": {
+      "trade_id": "T134",
+      "entry_time": "2026-02-08 04:09:10",
+      "entry_price": 8.86,
+      "side": "SHORT",
+      "stop_price": 8.91091,
+      "size": 231.34,
+      "exit_price": null,
+      "close_time": "2026-02-08 05:24:05",
+      "pnl": 8.2433,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.80909,
+          "time": "2026-02-08 05:15:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 74
+    },
+    "T135": {
+      "trade_id": "T135",
+      "entry_time": "2026-02-08 09:27:05",
+      "entry_price": 8.88,
+      "side": "LONG",
+      "stop_price": 8.82472,
+      "size": 216.0,
+      "exit_price": null,
+      "close_time": "2026-02-08 10:36:12",
+      "pnl": 8.3588,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.93528,
+          "time": "2026-02-08 09:33:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 69
+    },
+    "T136": {
+      "trade_id": "T136",
+      "entry_time": "2026-02-08 11:24:06",
+      "entry_price": 8.84,
+      "side": "SHORT",
+      "stop_price": 8.90559,
+      "size": 184.6,
+      "exit_price": null,
+      "close_time": "2026-02-08 12:06:02",
+      "pnl": -12.1074,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 41
+    },
+    "T137": {
+      "trade_id": "T137",
+      "entry_time": "2026-02-08 14:06:03",
+      "entry_price": 8.97,
+      "side": "SHORT",
+      "stop_price": 9.03381,
+      "size": 185.97,
+      "exit_price": null,
+      "close_time": "2026-02-08 17:51:18",
+      "pnl": 22.5462,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.90619,
+          "time": "2026-02-08 16:27:27"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 225
+    },
+    "T138": {
+      "trade_id": "T138",
+      "entry_time": "2026-02-08 14:39:23",
+      "entry_price": 8.95,
+      "side": "SHORT",
+      "stop_price": 9.00921,
+      "size": 200.41,
+      "exit_price": null,
+      "close_time": "2026-02-08 17:51:18",
+      "pnl": 22.5464,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.89079,
+          "time": "2026-02-08 16:27:27"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 191
+    },
+    "T139": {
+      "trade_id": "T139",
+      "entry_time": "2026-02-08 16:27:27",
+      "entry_price": 8.86,
+      "side": "SHORT",
+      "stop_price": 8.92021,
+      "size": 197.06,
+      "exit_price": null,
+      "close_time": "2026-02-08 18:18:16",
+      "pnl": 13.6448,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.79979,
+          "time": "2026-02-08 17:48:03"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 110
+    },
+    "T140": {
+      "trade_id": "T140",
+      "entry_time": "2026-02-08 17:39:16",
+      "entry_price": 8.86,
+      "side": "SHORT",
+      "stop_price": 8.91777,
+      "size": 205.4,
+      "exit_price": null,
+      "close_time": "2026-02-08 18:18:16",
+      "pnl": 13.6462,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.80223,
+          "time": "2026-02-08 17:48:03"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 39
+    },
+    "T141": {
+      "trade_id": "T141",
+      "entry_time": "2026-02-08 22:36:20",
+      "entry_price": 8.81,
+      "side": "SHORT",
+      "stop_price": 8.85692,
+      "size": 283.75,
+      "exit_price": null,
+      "close_time": "2026-02-09 00:00:09",
+      "pnl": -13.3139,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 83
+    },
+    "T142": {
+      "trade_id": "T142",
+      "entry_time": "2026-02-09 09:27:05",
+      "entry_price": 8.7,
+      "side": "SHORT",
+      "stop_price": 8.74802,
+      "size": 271.7,
+      "exit_price": null,
+      "close_time": "2026-02-09 09:42:15",
+      "pnl": 15.0038,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.65198,
+          "time": "2026-02-09 09:33:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 15
+    },
+    "T143": {
+      "trade_id": "T143",
+      "entry_time": "2026-02-09 11:30:13",
+      "entry_price": 8.53,
+      "side": "SHORT",
+      "stop_price": 8.584,
+      "size": 247.18,
+      "exit_price": null,
+      "close_time": "2026-02-09 11:54:02",
+      "pnl": 9.3434,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.476,
+          "time": "2026-02-09 11:45:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 23
+    },
+    "T144": {
+      "trade_id": "T144",
+      "entry_time": "2026-02-09 16:42:30",
+      "entry_price": 8.74,
+      "side": "LONG",
+      "stop_price": 8.65714,
+      "size": 163.35,
+      "exit_price": null,
+      "close_time": "2026-02-09 18:09:09",
+      "pnl": 9.4737,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.82286,
+          "time": "2026-02-09 17:48:04"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 86
+    },
+    "T145": {
+      "trade_id": "T145",
+      "entry_time": "2026-02-09 18:36:05",
+      "entry_price": 8.92,
+      "side": "LONG",
+      "stop_price": 8.83575,
+      "size": 162.9,
+      "exit_price": null,
+      "close_time": "2026-02-09 19:27:13",
+      "pnl": -13.7239,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 51
+    },
+    "T146": {
+      "trade_id": "T146",
+      "entry_time": "2026-02-10 06:45:12",
+      "entry_price": 8.65,
+      "side": "SHORT",
+      "stop_price": 8.69966,
+      "size": 270.81,
+      "exit_price": null,
+      "close_time": "2026-02-10 07:30:04",
+      "pnl": 9.4144,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.60034,
+          "time": "2026-02-10 07:24:21"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 44
+    },
+    "T147": {
+      "trade_id": "T147",
+      "entry_time": "2026-02-10 07:27:06",
+      "entry_price": 8.6,
+      "side": "SHORT",
+      "stop_price": 8.65372,
+      "size": 250.38,
+      "exit_price": null,
+      "close_time": "2026-02-10 09:27:18",
+      "pnl": 15.4661,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.54628,
+          "time": "2026-02-10 07:48:14"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 120
+    },
+    "T148": {
+      "trade_id": "T148",
+      "entry_time": "2026-02-10 12:54:04",
+      "entry_price": 8.508,
+      "side": "SHORT",
+      "stop_price": 8.53767,
+      "size": 470.04,
+      "exit_price": null,
+      "close_time": "2026-02-10 13:06:18",
+      "pnl": -13.9472,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T149": {
+      "trade_id": "T149",
+      "entry_time": "2026-02-10 15:12:10",
+      "entry_price": 8.573,
+      "side": "LONG",
+      "stop_price": 8.54698,
+      "size": 525.28,
+      "exit_price": null,
+      "close_time": "2026-02-10 15:21:16",
+      "pnl": 25.9689,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.59902,
+          "time": "2026-02-10 15:18:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 9
+    },
+    "T150": {
+      "trade_id": "T150",
+      "entry_time": "2026-02-11 01:30:13",
+      "entry_price": 8.589,
+      "side": "LONG",
+      "stop_price": 8.56803,
+      "size": 676.49,
+      "exit_price": null,
+      "close_time": "2026-02-11 01:45:22",
+      "pnl": -14.1877,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 15
+    },
+    "T151": {
+      "trade_id": "T151",
+      "entry_time": "2026-02-11 07:15:12",
+      "entry_price": 8.313,
+      "side": "SHORT",
+      "stop_price": 8.34813,
+      "size": 395.82,
+      "exit_price": null,
+      "close_time": "2026-02-11 07:27:16",
+      "pnl": -13.9037,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T152": {
+      "trade_id": "T152",
+      "entry_time": "2026-02-11 10:51:13",
+      "entry_price": 8.255,
+      "side": "SHORT",
+      "stop_price": 8.2809,
+      "size": 526.05,
+      "exit_price": null,
+      "close_time": "2026-02-11 12:03:02",
+      "pnl": 15.6694,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.2291,
+          "time": "2026-02-11 11:36:14"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 71
+    },
+    "T153": {
+      "trade_id": "T153",
+      "entry_time": "2026-02-11 11:42:05",
+      "entry_price": 8.205,
+      "side": "SHORT",
+      "stop_price": 8.23028,
+      "size": 539.08,
+      "exit_price": null,
+      "close_time": "2026-02-11 12:03:02",
+      "pnl": -13.6259,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 20
+    },
+    "T154": {
+      "trade_id": "T154",
+      "entry_time": "2026-02-12 09:21:03",
+      "entry_price": 8.44,
+      "side": "SHORT",
+      "stop_price": 8.46725,
+      "size": 501.5,
+      "exit_price": null,
+      "close_time": "2026-02-12 09:39:15",
+      "pnl": 9.5666,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.41275,
+          "time": "2026-02-12 09:30:26"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 18
+    },
+    "T155": {
+      "trade_id": "T155",
+      "entry_time": "2026-02-12 12:33:04",
+      "entry_price": 8.572,
+      "side": "LONG",
+      "stop_price": 8.53796,
+      "size": 407.1,
+      "exit_price": null,
+      "close_time": "2026-02-12 13:03:27",
+      "pnl": -13.8581,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 30
+    },
+    "T156": {
+      "trade_id": "T156",
+      "entry_time": "2026-02-12 14:36:13",
+      "entry_price": 8.527,
+      "side": "LONG",
+      "stop_price": 8.48859,
+      "size": 353.6,
+      "exit_price": null,
+      "close_time": "2026-02-12 15:03:00",
+      "pnl": 9.5066,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.56541,
+          "time": "2026-02-12 15:00:17"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 26
+    },
+    "T157": {
+      "trade_id": "T157",
+      "entry_time": "2026-02-12 16:00:09",
+      "entry_price": 8.497,
+      "side": "SHORT",
+      "stop_price": 8.54447,
+      "size": 290.09,
+      "exit_price": null,
+      "close_time": "2026-02-12 16:18:09",
+      "pnl": 15.8358,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.44953,
+          "time": "2026-02-12 16:06:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 18
+    },
+    "T158": {
+      "trade_id": "T158",
+      "entry_time": "2026-02-12 16:06:15",
+      "entry_price": 8.427,
+      "side": "SHORT",
+      "stop_price": 8.48075,
+      "size": 256.21,
+      "exit_price": null,
+      "close_time": "2026-02-12 16:18:09",
+      "pnl": -13.7703,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T159": {
+      "trade_id": "T159",
+      "entry_time": "2026-02-13 08:03:04",
+      "entry_price": 8.378,
+      "side": "LONG",
+      "stop_price": 8.35624,
+      "size": 634.83,
+      "exit_price": null,
+      "close_time": "2026-02-13 08:39:29",
+      "pnl": 15.8837,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.39976,
+          "time": "2026-02-13 08:12:22"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 36
+    },
+    "T160": {
+      "trade_id": "T160",
+      "entry_time": "2026-02-13 11:06:07",
+      "entry_price": 8.437,
+      "side": "SHORT",
+      "stop_price": 8.45565,
+      "size": 757.67,
+      "exit_price": null,
+      "close_time": "2026-02-13 11:21:03",
+      "pnl": -14.1298,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 14
+    },
+    "T161": {
+      "trade_id": "T161",
+      "entry_time": "2026-02-13 12:33:27",
+      "entry_price": 8.392,
+      "side": "SHORT",
+      "stop_price": 8.41273,
+      "size": 667.84,
+      "exit_price": null,
+      "close_time": "2026-02-13 12:39:17",
+      "pnl": -13.8473,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 5
+    },
+    "T162": {
+      "trade_id": "T162",
+      "entry_time": "2026-02-13 14:27:07",
+      "entry_price": 8.476,
+      "side": "LONG",
+      "stop_price": 8.45252,
+      "size": 577.91,
+      "exit_price": null,
+      "close_time": "2026-02-13 14:36:14",
+      "pnl": 15.6059,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.49948,
+          "time": "2026-02-13 14:33:14"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 9
+    },
+    "T163": {
+      "trade_id": "T163",
+      "entry_time": "2026-02-13 15:00:20",
+      "entry_price": 8.492,
+      "side": "LONG",
+      "stop_price": 8.45895,
+      "size": 420.09,
+      "exit_price": null,
+      "close_time": "2026-02-13 15:09:13",
+      "pnl": -13.882,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 8
+    },
+    "T164": {
+      "trade_id": "T164",
+      "entry_time": "2026-02-13 16:12:14",
+      "entry_price": 8.737,
+      "side": "LONG",
+      "stop_price": 8.65716,
+      "size": 170.41,
+      "exit_price": null,
+      "close_time": "2026-02-13 16:39:17",
+      "pnl": 9.5232,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.81684,
+          "time": "2026-02-13 16:33:05"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 27
+    },
+    "T165": {
+      "trade_id": "T165",
+      "entry_time": "2026-02-14 00:03:03",
+      "entry_price": 8.809,
+      "side": "SHORT",
+      "stop_price": 8.82933,
+      "size": 678.41,
+      "exit_price": null,
+      "close_time": "2026-02-14 01:42:04",
+      "pnl": 15.8645,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.78867,
+          "time": "2026-02-14 00:21:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 99
+    },
+    "T166": {
+      "trade_id": "T166",
+      "entry_time": "2026-02-14 13:39:20",
+      "entry_price": 8.961,
+      "side": "SHORT",
+      "stop_price": 8.98679,
+      "size": 547.2,
+      "exit_price": null,
+      "close_time": "2026-02-14 14:00:10",
+      "pnl": 9.8788,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.93521,
+          "time": "2026-02-14 13:51:12"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 20
+    },
+    "T167": {
+      "trade_id": "T167",
+      "entry_time": "2026-02-14 18:21:18",
+      "entry_price": 9.108,
+      "side": "LONG",
+      "stop_price": 9.07186,
+      "size": 395.94,
+      "exit_price": null,
+      "close_time": "2026-02-14 18:39:06",
+      "pnl": -14.3099,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 17
+    },
+    "T168": {
+      "trade_id": "T168",
+      "entry_time": "2026-02-14 23:42:08",
+      "entry_price": 9.165,
+      "side": "LONG",
+      "stop_price": 9.14188,
+      "size": 606.56,
+      "exit_price": null,
+      "close_time": "2026-02-15 00:00:12",
+      "pnl": -14.0238,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 18
+    },
+    "T169": {
+      "trade_id": "T169",
+      "entry_time": "2026-02-15 05:06:20",
+      "entry_price": 9.1,
+      "side": "LONG",
+      "stop_price": 9.05304,
+      "size": 292.69,
+      "exit_price": null,
+      "close_time": "2026-02-15 05:21:07",
+      "pnl": 9.6203,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.14696,
+          "time": "2026-02-15 05:15:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 14
+    },
+    "T170": {
+      "trade_id": "T170",
+      "entry_time": "2026-02-15 06:15:15",
+      "entry_price": 9.146,
+      "side": "LONG",
+      "stop_price": 9.10396,
+      "size": 331.49,
+      "exit_price": null,
+      "close_time": "2026-02-15 06:24:12",
+      "pnl": 9.7551,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 9.18804,
+          "time": "2026-02-15 06:18:09"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 8
+    },
+    "T171": {
+      "trade_id": "T171",
+      "entry_time": "2026-02-15 13:51:28",
+      "entry_price": 8.946,
+      "side": "SHORT",
+      "stop_price": 8.98284,
+      "size": 383.57,
+      "exit_price": null,
+      "close_time": "2026-02-15 14:27:07",
+      "pnl": 16.2505,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.90916,
+          "time": "2026-02-15 13:57:16"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 35
+    },
+    "T172": {
+      "trade_id": "T172",
+      "entry_time": "2026-02-15 17:09:03",
+      "entry_price": 8.809,
+      "side": "SHORT",
+      "stop_price": 8.84176,
+      "size": 441.23,
+      "exit_price": null,
+      "close_time": "2026-02-15 17:21:15",
+      "pnl": -14.456,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 12
+    },
+    "T173": {
+      "trade_id": "T173",
+      "entry_time": "2026-02-15 23:42:03",
+      "entry_price": 8.747,
+      "side": "LONG",
+      "stop_price": 8.71948,
+      "size": 514.7,
+      "exit_price": null,
+      "close_time": "2026-02-16 00:03:08",
+      "pnl": 9.9169,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.77452,
+          "time": "2026-02-15 23:57:16"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 21
+    },
+    "T174": {
+      "trade_id": "T174",
+      "entry_time": "2026-02-16 00:09:17",
+      "entry_price": 8.684,
+      "side": "SHORT",
+      "stop_price": 8.71885,
+      "size": 412.15,
+      "exit_price": null,
+      "close_time": "2026-02-16 00:27:16",
+      "pnl": -14.3649,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 17
+    },
+    "T175": {
+      "trade_id": "T175",
+      "entry_time": "2026-02-16 04:24:25",
+      "entry_price": 8.72,
+      "side": "SHORT",
+      "stop_price": 8.74048,
+      "size": 687.53,
+      "exit_price": null,
+      "close_time": "2026-02-16 04:51:08",
+      "pnl": -14.0778,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 26
+    },
+    "T176": {
+      "trade_id": "T176",
+      "entry_time": "2026-02-16 10:42:08",
+      "entry_price": 8.872,
+      "side": "LONG",
+      "stop_price": 8.84423,
+      "size": 496.75,
+      "exit_price": null,
+      "close_time": "2026-02-16 11:27:10",
+      "pnl": -13.7963,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 45
+    },
+    "T177": {
+      "trade_id": "T177",
+      "entry_time": "2026-02-16 13:30:14",
+      "entry_price": 8.862,
+      "side": "LONG",
+      "stop_price": 8.82297,
+      "size": 346.41,
+      "exit_price": null,
+      "close_time": "2026-02-16 14:03:08",
+      "pnl": 25.6891,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.90103,
+          "time": "2026-02-16 13:54:11"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 32
+    },
+    "T178": {
+      "trade_id": "T178",
+      "entry_time": "2026-02-16 15:30:22",
+      "entry_price": 8.763,
+      "side": "SHORT",
+      "stop_price": 8.82152,
+      "size": 239.83,
+      "exit_price": null,
+      "close_time": "2026-02-16 15:39:12",
+      "pnl": -14.0338,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 8
+    },
+    "T179": {
+      "trade_id": "T179",
+      "entry_time": "2026-02-17 02:06:14",
+      "entry_price": 8.92,
+      "side": "SHORT",
+      "stop_price": 8.9463,
+      "size": 522.85,
+      "exit_price": null,
+      "close_time": "2026-02-17 02:12:15",
+      "pnl": -13.7535,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 6
+    },
+    "T180": {
+      "trade_id": "T180",
+      "entry_time": "2026-02-17 12:57:25",
+      "entry_price": 8.772,
+      "side": "LONG",
+      "stop_price": 8.75,
+      "size": 612.73,
+      "exit_price": null,
+      "close_time": "2026-02-17 13:18:29",
+      "pnl": 9.4348,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.794,
+          "time": "2026-02-17 13:09:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 21
+    },
+    "T181": {
+      "trade_id": "T181",
+      "entry_time": "2026-02-17 13:36:06",
+      "entry_price": 8.805,
+      "side": "LONG",
+      "stop_price": 8.78325,
+      "size": 628.49,
+      "exit_price": null,
+      "close_time": "2026-02-17 13:51:15",
+      "pnl": -13.6673,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 15
+    },
+    "T182": {
+      "trade_id": "T182",
+      "entry_time": "2026-02-17 14:15:17",
+      "entry_price": 8.831,
+      "side": "LONG",
+      "stop_price": 8.80237,
+      "size": 467.87,
+      "exit_price": null,
+      "close_time": "2026-02-17 14:30:21",
+      "pnl": 9.3755,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.85963,
+          "time": "2026-02-17 14:27:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 15
+    },
+    "T183": {
+      "trade_id": "T183",
+      "entry_time": "2026-02-17 14:54:09",
+      "entry_price": 8.866,
+      "side": "LONG",
+      "stop_price": 8.83384,
+      "size": 422.27,
+      "exit_price": null,
+      "close_time": "2026-02-17 15:36:04",
+      "pnl": 9.5067,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.89816,
+          "time": "2026-02-17 15:33:28"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 41
+    },
+    "T184": {
+      "trade_id": "T184",
+      "entry_time": "2026-02-18 08:42:10",
+      "entry_price": 8.89,
+      "side": "LONG",
+      "stop_price": 8.87304,
+      "size": 812.13,
+      "exit_price": null,
+      "close_time": "2026-02-18 08:48:04",
+      "pnl": 9.6399,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.90696,
+          "time": "2026-02-18 08:45:09"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 5
+    },
+    "T185": {
+      "trade_id": "T185",
+      "entry_time": "2026-02-18 12:09:02",
+      "entry_price": 8.781,
+      "side": "SHORT",
+      "stop_price": 8.80713,
+      "size": 534.51,
+      "exit_price": null,
+      "close_time": "2026-02-18 12:18:02",
+      "pnl": -13.964,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 9
+    },
+    "T186": {
+      "trade_id": "T186",
+      "entry_time": "2026-02-18 14:45:04",
+      "entry_price": 8.726,
+      "side": "SHORT",
+      "stop_price": 8.75539,
+      "size": 465.63,
+      "exit_price": null,
+      "close_time": "2026-02-18 15:03:19",
+      "pnl": 15.7374,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.69661,
+          "time": "2026-02-18 14:48:15"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 18
+    },
+    "T187": {
+      "trade_id": "T187",
+      "entry_time": "2026-02-18 16:39:04",
+      "entry_price": 8.85,
+      "side": "LONG",
+      "stop_price": 8.80058,
+      "size": 283.29,
+      "exit_price": null,
+      "close_time": "2026-02-18 17:00:02",
+      "pnl": -13.9996,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 20
+    },
+    "T188": {
+      "trade_id": "T188",
+      "entry_time": "2026-02-18 19:45:04",
+      "entry_price": 8.623,
+      "side": "SHORT",
+      "stop_price": 8.66815,
+      "size": 303.86,
+      "exit_price": null,
+      "close_time": "2026-02-18 20:12:19",
+      "pnl": -13.7193,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 27
+    },
+    "T189": {
+      "trade_id": "T189",
+      "entry_time": "2026-02-18 19:54:16",
+      "entry_price": 8.642,
+      "side": "SHORT",
+      "stop_price": 8.6892,
+      "size": 290.67,
+      "exit_price": null,
+      "close_time": "2026-02-19 01:48:05",
+      "pnl": 15.7774,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.5948,
+          "time": "2026-02-18 20:33:02"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 353
+    },
+    "T190": {
+      "trade_id": "T190",
+      "entry_time": "2026-02-19 01:51:11",
+      "entry_price": 8.598,
+      "side": "LONG",
+      "stop_price": 8.58297,
+      "size": 915.55,
+      "exit_price": null,
+      "close_time": "2026-02-19 02:15:05",
+      "pnl": 26.1455,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.61303,
+          "time": "2026-02-19 02:03:06"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 23
+    },
+    "T191": {
+      "trade_id": "T191",
+      "entry_time": "2026-02-19 08:48:14",
+      "entry_price": 8.692,
+      "side": "SHORT",
+      "stop_price": 8.71465,
+      "size": 630.74,
+      "exit_price": null,
+      "close_time": "2026-02-19 09:21:12",
+      "pnl": 9.9987,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.66935,
+          "time": "2026-02-19 09:15:25"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 32
+    },
+    "T192": {
+      "trade_id": "T192",
+      "entry_time": "2026-02-19 13:54:09",
+      "entry_price": 8.575,
+      "side": "SHORT",
+      "stop_price": 8.59736,
+      "size": 647.84,
+      "exit_price": null,
+      "close_time": "2026-02-19 14:09:07",
+      "pnl": 27.5197,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.55264,
+          "time": "2026-02-19 14:03:28"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 14
+    },
+    "T193": {
+      "trade_id": "T193",
+      "entry_time": "2026-02-19 15:42:05",
+      "entry_price": 8.461,
+      "side": "LONG",
+      "stop_price": 8.41565,
+      "size": 331.48,
+      "exit_price": null,
+      "close_time": "2026-02-19 16:00:13",
+      "pnl": 10.5239,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.50635,
+          "time": "2026-02-19 15:54:02"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 18
+    },
+    "T194": {
+      "trade_id": "T194",
+      "entry_time": "2026-02-19 21:21:19",
+      "entry_price": 8.485,
+      "side": "SHORT",
+      "stop_price": 8.52125,
+      "size": 420.5,
+      "exit_price": null,
+      "close_time": "2026-02-19 21:48:26",
+      "pnl": -15.2447,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 27
+    },
+    "T195": {
+      "trade_id": "T195",
+      "entry_time": "2026-02-20 02:54:16",
+      "entry_price": 8.605,
+      "side": "SHORT",
+      "stop_price": 8.62733,
+      "size": 669.04,
+      "exit_price": null,
+      "close_time": "2026-02-20 03:06:12",
+      "pnl": -14.9396,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T196": {
+      "trade_id": "T196",
+      "entry_time": "2026-02-20 06:00:07",
+      "entry_price": 8.563,
+      "side": "SHORT",
+      "stop_price": 8.58582,
+      "size": 641.55,
+      "exit_price": null,
+      "close_time": "2026-02-20 06:33:12",
+      "pnl": -14.6408,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 33
+    },
+    "T197": {
+      "trade_id": "T197",
+      "entry_time": "2026-02-20 11:48:07",
+      "entry_price": 8.681,
+      "side": "SHORT",
+      "stop_price": 8.70368,
+      "size": 632.71,
+      "exit_price": null,
+      "close_time": "2026-02-20 12:45:06",
+      "pnl": 27.2617,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.65832,
+          "time": "2026-02-20 12:12:10"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 56
+    },
+    "T198": {
+      "trade_id": "T198",
+      "entry_time": "2026-02-20 13:54:22",
+      "entry_price": 8.619,
+      "side": "LONG",
+      "stop_price": 8.59552,
+      "size": 634.19,
+      "exit_price": null,
+      "close_time": "2026-02-20 14:06:10",
+      "pnl": -14.8935,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 11
+    },
+    "T199": {
+      "trade_id": "T199",
+      "entry_time": "2026-02-20 14:36:19",
+      "entry_price": 8.5,
+      "side": "SHORT",
+      "stop_price": 8.54097,
+      "size": 356.21,
+      "exit_price": null,
+      "close_time": "2026-02-20 14:45:12",
+      "pnl": 10.2166,
+      "tp_fills": [
+        {
+          "level": "TP1",
+          "price": 8.45903,
+          "time": "2026-02-20 14:42:19"
+        }
+      ],
+      "trail_reason": null,
+      "duration_minutes": 8
+    },
+    "T200": {
+      "trade_id": "T200",
+      "entry_time": "2026-02-20 16:03:18",
+      "entry_price": 8.732,
+      "side": "LONG",
+      "stop_price": 8.65708,
+      "size": 197.55,
+      "exit_price": null,
+      "close_time": "2026-02-20 16:18:13",
+      "pnl": -14.7997,
+      "tp_fills": [],
+      "trail_reason": "TP1_CLOSED_SL",
+      "duration_minutes": 14
+    }
+  }
+}
