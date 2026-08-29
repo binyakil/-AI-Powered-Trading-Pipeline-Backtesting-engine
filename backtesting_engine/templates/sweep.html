@@ -6,6 +6,10 @@
   <form method="POST">
     <p><strong>Choose Stop-Loss Method:</strong></p>
     <select name="stoppx_method" style="padding:10px; font-size:16px;">
+      <div style="margin-top: 15px; margin-bottom: 15px;">
+        <input type="checkbox" id="test_mode" name="test_mode">
+        <label for="test_mode"><b>Micro-Sweep</b> (Schneller Test: bricht nach 2 Kombinationen ab)</label>
+      </div>
       <option>ATR×2</option>
       <option>ATR×3</option>
       <option>Fixed 1R</option>

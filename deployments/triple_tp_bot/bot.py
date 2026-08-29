@@ -907,7 +907,11 @@ async def run_strategy(live: bool, paper_balance: float, log_level: str, ws_verb
                         state.last_entry_time = now
 
         while True:
-            await asyncio.sleep(random.uniform(10, 30))
+            import time
+            current_second = time.time() % 60
+            # Schläft exakt bis zur 2. Sekunde der NEUEN Minute, um fertige Kerzen zu garantieren
+            sleep_time = 62 - current_second if current_second >= 2 else 2 - current_second
+            await asyncio.sleep(sleep_time)
             try:
                 ohlcv_1m = await exchange.fetch_ohlcv(SYMBOL, TIMEFRAME, limit=MIN_BARS + 50)
             except Exception as exc:

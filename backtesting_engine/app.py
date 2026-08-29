@@ -9,7 +9,7 @@ from datetime import datetime
 import json
 import shutil
 
-RUNS_DIR = Path("/Users/benni/Documents/personal/work/money/trading/SWEEP PROJECT/outputs/sweep outputs")
+RUNS_DIR = Path("outputs/sweep_outputs")
 RUNS_DIR.mkdir(exist_ok=True)
 import time
 from ta.volatility import AverageTrueRange
@@ -347,9 +347,16 @@ def processTrades(df, params, stoppx_col, collect_details=False):
             if not pd.isna(stopPx):
                 conflict_logs = trade_logs if collect_details else None
                 if handleConflictMode(params, side, openTrades, tradeExits, df, epoch, row, conflict_logs):
+                    # Kausalitäts-Check: Sind wir an der allerletzten Kerze? Dann können wir nicht in t+1 einsteigen.
+                    if row + 1 >= len(df):
+                        continue
+                    
                     tradeId += 1
                     executed_trades.add(tradeId)
-                    entryPx = df.iloc[row]['Open']
+                    
+                    # Strikt t+1 Ausführung
+                    entryPx = float(df.iloc[row + 1]['Open'])
+                    execution_time = df.iloc[row + 1]['Epoch']
                     riskPts = abs(entryPx - stopPx)
                     tp2_r = params.get('tp2_r', 0)
                     tp2_pct = params.get('tp2_pct', 0)
@@ -374,7 +381,7 @@ def processTrades(df, params, stoppx_col, collect_details=False):
                         trade_logs[base_id] = {
                             'trade_id': tradeId,
                             'side': side,
-                            'entry_time': epoch,
+                            'entry_time': execution_time,
                             'entry_px': entryPx,
                             'stop_px_initial': stopPx,
                             'stop_px_final': stopPx,
@@ -488,7 +495,7 @@ def processTrades(df, params, stoppx_col, collect_details=False):
             finalized.append(log)
     return df, executed_trades, finalized
 
-def runSweep(df_processed, stoppx_method):
+def runSweep(df_processed, stoppx_method, is_test_mode=False):
     df = df_processed.copy()
     if stoppx_method not in STOPPX_METHOD_MAP:
         raise ValueError(f"Unknown stoppx_method: {stoppx_method}")
@@ -497,6 +504,9 @@ def runSweep(df_processed, stoppx_method):
     df['StopPx'] = df[stop_col]
     result_data = []
     for run_id, params in iterate_sweep_configs():
+        if is_test_mode and run_id > 2:
+            logger.info("Test mode enabled: Stopping sweep early.")
+            break
         df_temp = df.copy()
         df_temp, trades = processTrades(df_temp, params, stop_col)
         rResults = df_temp['R_Result'].replace('', np.nan).dropna().astype(float).tolist()
@@ -645,7 +655,11 @@ def export_trades_for_run_ids(run_dir, run_ids):
         if not trade_rows:
             continue
         output_path = export_dir / f"trades_run_{run_id}.csv"
-        pd.DataFrame(trade_rows, columns=TRADE_EXPORT_COLUMNS).to_csv(output_path, index=False)
+        df_export = pd.DataFrame(trade_rows, columns=TRADE_EXPORT_COLUMNS)
+        if 'entry_time' in df_export.columns:
+            df_export['entry_time'] = pd.to_datetime(df_export['entry_time'], unit='s')
+            df_export['exit_time'] = pd.to_datetime(df_export['exit_time'], unit='s')
+        df_export.to_csv(output_path, index=False)
         exported.append(output_path.name)
     return exported
 
@@ -940,6 +954,7 @@ def sweep():
     
     if request.method == 'POST':
         stoppx_method = request.form['stoppx_method']
+        is_test_mode = request.form.get('test_mode') == 'on'
 
         run_id = run_dir.name.replace("run_", "")
         meta_path = run_dir / "run_meta.json"
@@ -966,7 +981,7 @@ def sweep():
         with open(run_dir / "config.json", "w") as f:
             json.dump(config, f, indent=2)
 
-        results_df = runSweep(df, stoppx_method)
+        results_df = runSweep(df, stoppx_method, is_test_mode=is_test_mode)
         
         # Write results
 #        service.spreadsheets().values().clear(spreadsheetId=SPREADSHEET_ID, range='Results+Evaluation!A:Z').execute()
@@ -1148,4 +1163,4 @@ def writeExit(df, trade, tradeExit):
     df.at[r, 'R_Result'] = rResult
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, use_reloader=False, port=5000)
