@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julaba Trading System - PhD Mathematical Strategy v3.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 40px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            letter-spacing: 4px;
+        }
+        
+        .header .version {
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .section h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.2rem;
+            color: #334155;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .section p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+        
+        /* Flow Diagram */
+        .flow-container {
+            padding: 30px 0;
+        }
+        
+        .flow-step {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px 30px;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .flow-step.data { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-color: #3b82f6; }
+        .flow-step.indicator { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-color: #10b981; }
+        .flow-step.filter { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-color: #f59e0b; }
+        .flow-step.ai { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); border-color: #a855f7; }
+        .flow-step.trade { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-color: #22c55e; }
+        .flow-step.math { background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%); border-color: #ef4444; }
+        
+        .flow-title { font-weight: 700; font-size: 1.1rem; color: #1e293b; margin-bottom: 5px; }
+        .flow-desc { font-size: 0.9rem; color: #64748b; }
+        .flow-arrow { text-align: center; font-size: 1.8rem; color: #94a3b8; margin: 12px 0; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #1e293b; color: white; font-weight: 600; padding: 14px 16px; text-align: left; }
+        th:first-child { border-radius: 8px 0 0 0; }
+        th:last-child { border-radius: 0 8px 0 0; }
+        td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+        tr:nth-child(even) { background: #f8fafc; }
+        tr:hover { background: #f1f5f9; }
+        
+        .status-yes { color: #16a34a; font-weight: 600; }
+        .status-no { color: #dc2626; font-weight: 600; }
+        .status-caution { color: #d97706; font-weight: 600; }
+        
+        /* PhD Math Grid */
+        .phd-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .phd-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .phd-card .phd-icon { font-size: 2rem; margin-bottom: 10px; }
+        .phd-card .phd-name { font-weight: 700; font-size: 1rem; color: #1e293b; margin-bottom: 8px; }
+        .phd-card .phd-formula {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #3b82f6;
+            background: #eff6ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .phd-card .phd-desc { font-size: 0.85rem; color: #64748b; line-height: 1.5; }
+        .phd-card .phd-weight { font-size: 0.8rem; color: #10b981; font-weight: 600; margin-top: 8px; }
+        
+        /* Signal Logic Grid */
+        .signal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .signal-box { padding: 25px; border-radius: 12px; text-align: center; }
+        .signal-box.long { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border: 2px solid #22c55e; }
+        .signal-box.short { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border: 2px solid #ef4444; }
+        .signal-box .signal-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .signal-box .signal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; }
+        .signal-box.long .signal-title { color: #16a34a; }
+        .signal-box.short .signal-title { color: #dc2626; }
+        .signal-box .signal-condition {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.8;
+            color: #1e293b;
+        }
+        
+        /* Risk Grid */
+        .risk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .risk-item { background: #f8fafc; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #e2e8f0; }
+        .risk-item .risk-label { font-size: 0.85rem; color: #64748b; margin-bottom: 8px; }
+        .risk-item .risk-value { font-size: 1.5rem; font-weight: 700; color: #3b82f6; }
+        .risk-item .risk-formula { font-family: 'Courier New', monospace; font-size: 0.75rem; color: #64748b; margin-top: 8px; }
+        
+        /* Validation Rules */
+        .validation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .validation-box { background: #f8fafc; border-radius: 12px; padding: 20px; border: 2px solid #e2e8f0; }
+        .validation-box.blocked { border-color: #ef4444; background: #fef2f2; }
+        .validation-box.allowed { border-color: #22c55e; background: #f0fdf4; }
+        .validation-box h4 { font-size: 1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .validation-box ul { list-style: none; padding: 0; }
+        .validation-box li { padding: 8px 0; font-size: 0.9rem; color: #64748b; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .validation-box li:last-child { border-bottom: none; }
+        .validation-box code { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; }
+        
+        /* Formula Box */
+        .formula-box {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .formula-box .formula-title { color: #94a3b8; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .formula-box .formula { color: #e2e8f0; font-size: 0.95rem; line-height: 2; }
+        .formula .var { color: #60a5fa; }
+        .formula .op { color: #4ade80; }
+        .formula .num { color: #fbbf24; }
+        .formula .result { color: #f472b6; }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 40px;
+        }
+        .footer .logo { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-bottom: 10px; }
+        
+        /* Print Styles */
+        @media print {
+            body { padding: 20px; }
+            .section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>🎓 JULABA</h1>
+            <div class="subtitle">PHD-LEVEL MATHEMATICAL TRADING SYSTEM</div>
+            <div class="version">v3.0 | January 2026 | Math-First Architecture</div>
+        </div>
+        
+        <!-- Core Philosophy -->
+        <div class="section">
+            <h2>🧮 Core Philosophy: Mathematics First</h2>
+            <p style="font-size: 1.1rem; color: #1e293b; font-weight: 500;">
+                "The main concept is that everything should work with math. AI should use math for scanning. 
+                Mistakes are not tolerated here - we are mathematicians."
+            </p>
+            <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-radius: 12px; border-left: 4px solid #ef4444;">
+                <strong style="color: #dc2626;">CRITICAL RULE:</strong> Mathematics is the PRIMARY decision maker. 
+                AI only validates and refines mathematical decisions - it can NEVER override math with a score ≥ 80.
+            </div>
+        </div>
+
+        <!-- System Architecture Flow -->
+        <div class="section">
+            <h2>🔄 Math-First System Architecture</h2>
+            
+            <div class="flow-container">
+                <div class="flow-step data">
+                    <div class="flow-title">📊 MARKET DATA</div>
+                    <div class="flow-desc">15-minute OHLCV candles from Binance</div>
+                </div>
+                <div class="flow-arrow">⬇</div>
+                
+                <div class="flow-step math">
+                    <div class="flow-title">🎓 PHD MATHEMATICAL ANALYSIS</div>
+                    <div class="flow-desc">12 Quantitative Components | Primary Decision Maker</div>
+                </div>
+                <div class="flow-arrow">⬇</div>
+                
+                <div class="flow-step filter">
+                    <div class="flow-title">🔢 MATH SCORE CALCULATION</div>
+                    <div class="flow-desc">Weighted Score 0-100 | Threshold: 55 (approve), 70 (trade)</div>
+                </div>
+                <div class="flow-arrow">⬇</div>
+                
+                <div class="flow-step ai">
+                    <div class="flow-title">🤖 AI VALIDATION (Secondary)</div>
+                    <div class="flow-desc">Can only CONFIRM, REFINE, or VETO (with restrictions)</div>
+                </div>
+                <div class="flow-arrow">⬇</div>
+                
+                <div class="flow-step indicator">
+                    <div class="flow-title">🛡️ COMMAND VALIDATION</div>
+                    <div class="flow-desc">Double-layer protection against unauthorized changes</div>
+                </div>
+                <div class="flow-arrow">⬇</div>
+                
+                <div class="flow-step trade">
+                    <div class="flow-title">💰 TRADE EXECUTION</div>
+                    <div class="flow-desc">Entry with SL/TP based on Kelly Criterion sizing</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PhD Mathematical Components -->
+        <div class="section">
+            <h2>🎓 PhD-Level Mathematical Analysis (12 Components)</h2>
+            <p>Each component is weighted and contributes to a final score of 0-100. Minimum score of 55 required for trade approval.</p>
+            
+            <div class="phd-grid">
+                <div class="phd-card">
+                    <div class="phd-icon">📈</div>
+                    <div class="phd-name">Trend Strength (SMA)</div>
+                    <div class="phd-formula">dist = |price - SMA40| / SMA40</div>
+                    <div class="phd-desc">Measures price distance from 40-period SMA. Strong trend = larger distance.</div>
+                    <div class="phd-weight">Weight: 15%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">📊</div>
+                    <div class="phd-name">Volume Confirmation</div>
+                    <div class="phd-formula">ratio = volume / SMA(volume, 20)</div>
+                    <div class="phd-desc">Confirms breakouts with above-average volume. Ratio ≥ 1.5 = strong.</div>
+                    <div class="phd-weight">Weight: 10%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">⚡</div>
+                    <div class="phd-name">Momentum (RSI)</div>
+                    <div class="phd-formula">score = |RSI - 50| / 50</div>
+                    <div class="phd-desc">Strong momentum when RSI far from neutral 50. Penalizes extremes (&gt;80, &lt;20).</div>
+                    <div class="phd-weight">Weight: 12%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">🎯</div>
+                    <div class="phd-name">Risk:Reward Ratio</div>
+                    <div class="phd-formula">R:R = potential_profit / stop_loss</div>
+                    <div class="phd-desc">Minimum 2:1 required. Score scales up to 5:1 for maximum points.</div>
+                    <div class="phd-weight">Weight: 12%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">🌊</div>
+                    <div class="phd-name">Volatility Regime</div>
+                    <div class="phd-formula">ATR% = ATR / price × 100</div>
+                    <div class="phd-desc">Optimal range: 0.3% - 2.0%. Too low = no opportunity, too high = risky.</div>
+                    <div class="phd-weight">Weight: 8%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">💪</div>
+                    <div class="phd-name">ADX Strength</div>
+                    <div class="phd-formula">score = min(ADX/35, 1.0)</div>
+                    <div class="phd-desc">ADX ≥ 25 = trending. ADX ≥ 35 = strong trend (max score).</div>
+                    <div class="phd-weight">Weight: 8%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">📐</div>
+                    <div class="phd-name">Linear Regression R²</div>
+                    <div class="phd-formula">R² = 1 - (SS_res / SS_tot)</div>
+                    <div class="phd-desc">Measures trend reliability. R² ≥ 0.7 = strong linear trend.</div>
+                    <div class="phd-weight">Weight: 8%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">🔮</div>
+                    <div class="phd-name">Hurst Exponent</div>
+                    <div class="phd-formula">H = log(R/S) / log(n)</div>
+                    <div class="phd-desc">H &gt; 0.5 = trending (momentum). H &lt; 0.5 = mean-reverting. H ≈ 0.5 = random.</div>
+                    <div class="phd-weight">Weight: 7%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">📉</div>
+                    <div class="phd-name">Z-Score (Mean Reversion)</div>
+                    <div class="phd-formula">Z = (price - μ) / σ</div>
+                    <div class="phd-desc">|Z| &gt; 2 indicates potential mean reversion opportunity.</div>
+                    <div class="phd-weight">Weight: 5%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">🔄</div>
+                    <div class="phd-name">Autocorrelation</div>
+                    <div class="phd-formula">ACF = Σ(x_t - μ)(x_{t-1} - μ) / σ²</div>
+                    <div class="phd-desc">High ACF = predictable continuation. Measures market memory.</div>
+                    <div class="phd-weight">Weight: 5%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">⚠️</div>
+                    <div class="phd-name">Skewness/Kurtosis</div>
+                    <div class="phd-formula">Tail Risk Assessment</div>
+                    <div class="phd-desc">High kurtosis = fat tails (extreme moves). Penalizes during high tail risk.</div>
+                    <div class="phd-weight">Weight: 5%</div>
+                </div>
+                
+                <div class="phd-card">
+                    <div class="phd-icon">💰</div>
+                    <div class="phd-name">Kelly Criterion</div>
+                    <div class="phd-formula">K = (p × b - q) / b</div>
+                    <div class="phd-desc">Optimal position sizing. K &gt; 0 required. Half-Kelly used for safety.</div>
+                    <div class="phd-weight">Weight: 5%</div>
+                </div>
+            </div>
+            
+            <div class="formula-box">
+                <div class="formula-title">Final Score Calculation</div>
+                <div class="formula">
+                    <span class="var">final_score</span> <span class="op">=</span> Σ(<span class="var">component_score</span> <span class="op">×</span> <span class="var">weight</span>)<br>
+                    <span class="result">APPROVE</span> if <span class="var">score</span> <span class="op">≥</span> <span class="num">55</span><br>
+                    <span class="result">OVERRIDE AI</span> if <span class="var">score</span> <span class="op">≥</span> <span class="num">65</span><br>
+                    <span class="result">PROACTIVE TRADE</span> if <span class="var">score</span> <span class="op">≥</span> <span class="num">70</span><br>
+                    <span class="result">OVERRIDE AI VETO</span> if <span class="var">score</span> <span class="op">≥</span> <span class="num">80</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Math Score Thresholds -->
+        <div class="section">
+            <h2>🎯 Mathematical Score Thresholds</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Score Range</th>
+                        <th>Classification</th>
+                        <th>Action</th>
+                        <th>AI Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0 - 54</strong></td>
+                        <td class="status-no">❌ REJECTED</td>
+                        <td>No trade allowed</td>
+                        <td>Cannot override</td>
+                    </tr>
+                    <tr>
+                        <td><strong>55 - 64</strong></td>
+                        <td class="status-caution">⚠️ MARGINAL</td>
+                        <td>AI decides</td>
+                        <td>Primary decision maker</td>
+                    </tr>
+                    <tr>
+                        <td><strong>65 - 69</strong></td>
+                        <td class="status-yes">✅ APPROVED</td>
+                        <td>Trade approved</td>
+                        <td>Can suggest refinements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>70 - 79</strong></td>
+                        <td class="status-yes">🔥 STRONG</td>
+                        <td>Proactive trade signal</td>
+                        <td>Validates only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>80 - 100</strong></td>
+                        <td class="status-yes">💎 EXCEPTIONAL</td>
+                        <td>Math overrides AI veto</td>
+                        <td>Cannot veto</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Signal Generation -->
+        <div class="section">
+            <h2>⚡ Signal Generation Logic</h2>
+            
+            <div class="signal-grid">
+                <div class="signal-box long">
+                    <div class="signal-icon">🟢</div>
+                    <div class="signal-title">LONG SIGNAL</div>
+                    <div class="signal-condition">
+                        SMA15 crosses ABOVE SMA40<br>
+                        OR (price near BB_lower AND RSI &lt; 35)<br>
+                        <br>
+                        AND math_score ≥ 55<br>
+                        AND R:R ≥ 2.0<br>
+                        AND ATR% ≥ 0.1%
+                    </div>
+                </div>
+                
+                <div class="signal-box short">
+                    <div class="signal-icon">🔴</div>
+                    <div class="signal-title">SHORT SIGNAL</div>
+                    <div class="signal-condition">
+                        SMA15 crosses BELOW SMA40<br>
+                        OR (price near BB_upper AND RSI &gt; 65)<br>
+                        <br>
+                        AND math_score ≥ 55<br>
+                        AND R:R ≥ 2.0<br>
+                        AND ATR% ≥ 0.1%
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Management -->
+        <div class="section">
+            <h2>⚠️ Risk Management</h2>
+            
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <div class="risk-label">Max Risk Per Trade</div>
+                    <div class="risk-value">1-2%</div>
+                    <div class="risk-formula">Kelly/2 capped</div>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label">Stop Loss</div>
+                    <div class="risk-value">2.0 × ATR</div>
+                    <div class="risk-formula">ATR multiplier</div>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label">Take Profit 1</div>
+                    <div class="risk-value">1.5R</div>
+                    <div class="risk-formula">Close 50%</div>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-label">Take Profit 2</div>
+                    <div class="risk-value">2.5R</div>
+                    <div class="risk-formula">Close 30%</div>
+                </div>
+            </div>
+            
+            <div class="formula-box">
+                <div class="formula-title">Position Size Calculation</div>
+                <div class="formula">
+                    <span class="var">kelly</span> <span class="op">=</span> (<span class="var">win_rate</span> <span class="op">×</span> <span class="var">avg_win</span> <span class="op">-</span> <span class="var">loss_rate</span>) <span class="op">/</span> <span class="var">avg_win</span><br>
+                    <span class="var">position_size</span> <span class="op">=</span> (<span class="var">balance</span> <span class="op">×</span> <span class="var">risk_pct</span>) <span class="op">/</span> <span class="var">stop_distance</span><br>
+                    <span class="var">risk_pct</span> <span class="op">=</span> min(<span class="var">kelly</span> <span class="op">/</span> <span class="num">2</span>, <span class="num">0.02</span>)  <span class="result">// Half-Kelly, max 2%</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Command Validation System -->
+        <div class="section">
+            <h2>🛡️ Mathematical Command Validation (Double-Layer)</h2>
+            <p>All settings changes require explicit user intent. AI cannot accidentally modify system parameters.</p>
+            
+            <h3>Layer 1: MATH GUARD (ai_filter.py)</h3>
+            <p>Strips unauthorized command blocks from AI responses before they reach execution layer.</p>
+            
+            <h3>Layer 2: Intent Validation (telegram_bot.py)</h3>
+            <p>Validates user message against command action before execution.</p>
+            
+            <div class="validation-grid">
+                <div class="validation-box blocked">
+                    <h4>❌ BLOCKED (Never Execute)</h4>
+                    <ul>
+                        <li><code>okay</code> → Acknowledgement, not command</li>
+                        <li><code>got it</code> → Acknowledgement, not command</li>
+                        <li><code>what is the risk?</code> → Question, not command</li>
+                        <li><code>how does mode work?</code> → Question, not command</li>
+                        <li><code>good</code> → Acknowledgement, not command</li>
+                        <li><code>thanks</code> → Acknowledgement, not command</li>
+                    </ul>
+                </div>
+                
+                <div class="validation-box allowed">
+                    <h4>✅ ALLOWED (Execute Command)</h4>
+                    <ul>
+                        <li><code>change risk to 2%</code> → Action verb + target + value</li>
+                        <li><code>set confidence to 80%</code> → Action verb + target + value</li>
+                        <li><code>switch to BTC</code> → Action verb + symbol</li>
+                        <li><code>open long</code> → Trade action + side</li>
+                        <li><code>pause the bot</code> → Explicit pause request</li>
+                        <li><code>resume trading</code> → Explicit resume request</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command Type</th>
+                        <th>Required User Intent</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>set_param</strong></td>
+                        <td>Action verb + parameter name + value</td>
+                        <td>"change risk to 1.5%"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>open_trade</strong></td>
+                        <td>Trade keywords: open, buy, long, short</td>
+                        <td>"open a long position"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>close_trade</strong></td>
+                        <td>Close keywords: close, exit, sell</td>
+                        <td>"close the position"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>switch_symbol</strong></td>
+                        <td>Switch keyword + symbol name</td>
+                        <td>"switch to ETHUSDT"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>pause/resume</strong></td>
+                        <td>Explicit pause/resume/stop/start</td>
+                        <td>"pause the bot"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>set_mode</strong></td>
+                        <td>Mode keyword + action verb</td>
+                        <td>"change mode to autonomous"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- AI Roles -->
+        <div class="section">
+            <h2>🤖 AI Role Hierarchy</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Context</th>
+                        <th>Math Role</th>
+                        <th>AI Role</th>
+                        <th>Who Decides</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Signal Filtering</strong></td>
+                        <td>Primary (score calculation)</td>
+                        <td>Secondary (can veto if score &lt; 65)</td>
+                        <td>Math (score ≥ 65 overrides)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Proactive Scanning</strong></td>
+                        <td>Primary (find opportunities)</td>
+                        <td>Validator (confirm/refine/veto)</td>
+                        <td>Math (score ≥ 80 overrides veto)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chat/Commands</strong></td>
+                        <td>Intent Validation</td>
+                        <td>Response Generation</td>
+                        <td>Math Guard (strips unauthorized)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Position Sizing</strong></td>
+                        <td>Kelly Criterion calculation</td>
+                        <td>None</td>
+                        <td>Math only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk Management</strong></td>
+                        <td>ATR-based stops</td>
+                        <td>None</td>
+                        <td>Math only</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Anti-Hallucination -->
+        <div class="section">
+            <h2>🚨 Anti-Hallucination Checks</h2>
+            <p>The system continuously validates AI responses against actual system state:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Check Type</th>
+                        <th>What's Validated</th>
+                        <th>Action on Mismatch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Position Hallucination</strong></td>
+                        <td>AI claims position exists vs actual state</td>
+                        <td>Append correction to response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Symbol Hallucination</strong></td>
+                        <td>AI mentions wrong trading symbol</td>
+                        <td>Append correction to response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Balance Hallucination</strong></td>
+                        <td>AI claims wrong balance (&gt;20% off)</td>
+                        <td>Append correction to response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Win Rate Hallucination</strong></td>
+                        <td>AI claims wrong win rate (&gt;15% off)</td>
+                        <td>Append correction to response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mode/Status Hallucination</strong></td>
+                        <td>AI claims wrong mode or paused state</td>
+                        <td>Append correction to response</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Technical Stack -->
+        <div class="section">
+            <h2>🔧 Technical Stack</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Core Engine</strong></td>
+                        <td>Python 3.9+</td>
+                        <td>Trading logic, math calculations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exchange</strong></td>
+                        <td>Binance Futures (ccxt)</td>
+                        <td>Market data, order execution</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI Model</strong></td>
+                        <td>Google Gemini 1.5 Flash</td>
+                        <td>Signal validation, chat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Math Libraries</strong></td>
+                        <td>NumPy, SciPy, Pandas</td>
+                        <td>Statistical analysis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dashboard</strong></td>
+                        <td>Flask + JavaScript</td>
+                        <td>Web interface, control panel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notifications</strong></td>
+                        <td>Telegram Bot API</td>
+                        <td>Alerts, chat interface</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ML Pipeline</strong></td>
+                        <td>Scikit-learn</td>
+                        <td>Pattern learning (future)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="logo">🎓 JULABA v3.0</div>
+            <p>PhD-Level Mathematical Trading System</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                Generated: January 12, 2026 | Math-First Architecture
+            </p>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: #94a3b8;">
+                "Mathematics is the language in which God has written the universe." - Galileo Galilei
+            </p>
+        </div>
+    </div>
+</body>
+</html>

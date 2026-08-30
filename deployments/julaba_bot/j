@@ -1,0 +1,3 @@
+#!/bin/bash
+# Julaba quick command wrapper - points to full julaba script
+exec /usr/local/bin/julaba "$@"

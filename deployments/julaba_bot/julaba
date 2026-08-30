@@ -1,0 +1,597 @@
+#!/bin/bash
+#═══════════════════════════════════════════════════════════════════════════════
+#  JULABA TRADING BOT - Command Line Interface
+#═══════════════════════════════════════════════════════════════════════════════
+#  Usage: julaba <command> [options]
+#
+#  Examples:
+#    julaba start          Start the bot
+#    julaba stop           Stop the bot
+#    julaba restart        Restart the bot
+#    julaba status         Show bot status
+#    julaba logs           View live logs
+#    julaba help           Show this help
+#═══════════════════════════════════════════════════════════════════════════════
+
+set -e
+
+# Configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BOT_FILE="$SCRIPT_DIR/bot.py"
+LOCK_FILE="$SCRIPT_DIR/julaba.lock"
+LOG_FILE="$SCRIPT_DIR/bot.log"
+API_URL="http://localhost:5000"
+SERVICE_NAME="julaba"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# Check if using systemd service or direct python
+USE_SYSTEMD=false
+if systemctl is-enabled "$SERVICE_NAME" &>/dev/null 2>&1; then
+    USE_SYSTEMD=true
+fi
+
+#═══════════════════════════════════════════════════════════════════════════════
+# HELPER FUNCTIONS
+#═══════════════════════════════════════════════════════════════════════════════
+
+print_banner() {
+    echo -e "${CYAN}"
+    echo "     ██╗██╗   ██╗██╗      █████╗ ██████╗  █████╗ "
+    echo "     ██║██║   ██║██║     ██╔══██╗██╔══██╗██╔══██╗"
+    echo "     ██║██║   ██║██║     ███████║██████╔╝███████║"
+    echo "██   ██║██║   ██║██║     ██╔══██║██╔══██╗██╔══██║"
+    echo "╚█████╔╝╚██████╔╝███████╗██║  ██║██████╔╝██║  ██║"
+    echo " ╚════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝"
+    echo -e "${NC}"
+    echo -e "${BOLD}    Autonomous AI Trading Bot${NC}"
+    echo ""
+}
+
+is_running() {
+    pgrep -f "python3 bot.py" > /dev/null 2>&1
+}
+
+get_pid() {
+    pgrep -f "python3 bot.py" 2>/dev/null | head -1
+}
+
+api_call() {
+    curl -s --max-time 3 "$API_URL$1" 2>/dev/null
+}
+
+print_status() {
+    local status="$1"
+    local message="$2"
+    case "$status" in
+        ok)      echo -e "${GREEN}✓${NC} $message" ;;
+        error)   echo -e "${RED}✗${NC} $message" ;;
+        warning) echo -e "${YELLOW}!${NC} $message" ;;
+        info)    echo -e "${BLUE}ℹ${NC} $message" ;;
+    esac
+}
+
+#═══════════════════════════════════════════════════════════════════════════════
+# COMMANDS
+#═══════════════════════════════════════════════════════════════════════════════
+
+cmd_start() {
+    echo -e "${BOLD}Starting Julaba...${NC}"
+    
+    if is_running; then
+        print_status warning "Bot is already running (PID: $(get_pid))"
+        return 0
+    fi
+    
+    # Remove stale lock file
+    rm -f "$LOCK_FILE"
+    
+    if [ "$USE_SYSTEMD" = true ]; then
+        sudo systemctl start "$SERVICE_NAME"
+        sleep 2
+        if is_running; then
+            print_status ok "Bot started via systemd (PID: $(get_pid))"
+        else
+            print_status error "Failed to start bot"
+            return 1
+        fi
+    else
+        cd "$SCRIPT_DIR"
+        nohup python3 bot.py > "$LOG_FILE" 2>&1 &
+        sleep 3
+        if is_running; then
+            print_status ok "Bot started (PID: $(get_pid))"
+            print_status info "Dashboard: http://localhost:5000"
+        else
+            print_status error "Failed to start bot. Check $LOG_FILE"
+            return 1
+        fi
+    fi
+}
+
+cmd_stop() {
+    echo -e "${BOLD}Stopping Julaba...${NC}"
+    
+    if ! is_running; then
+        print_status warning "Bot is not running"
+        rm -f "$LOCK_FILE"
+        return 0
+    fi
+    
+    if [ "$USE_SYSTEMD" = true ]; then
+        sudo systemctl stop "$SERVICE_NAME"
+    else
+        pkill -f "python3 bot.py" 2>/dev/null || true
+    fi
+    
+    sleep 2
+    rm -f "$LOCK_FILE"
+    
+    if ! is_running; then
+        print_status ok "Bot stopped"
+    else
+        print_status warning "Force killing..."
+        pkill -9 -f "python3 bot.py" 2>/dev/null || true
+        sleep 1
+        print_status ok "Bot force stopped"
+    fi
+}
+
+cmd_restart() {
+    echo -e "${BOLD}Restarting Julaba...${NC}"
+    cmd_stop
+    sleep 1
+    cmd_start
+}
+
+cmd_status() {
+    echo -e "${BOLD}Julaba Status${NC}"
+    echo "─────────────────────────────────────"
+    
+    if is_running; then
+        local pid=$(get_pid)
+        print_status ok "Bot is running (PID: $pid)"
+        
+        # Get uptime
+        local start_time=$(ps -o lstart= -p "$pid" 2>/dev/null)
+        if [ -n "$start_time" ]; then
+            echo -e "   Started: $start_time"
+        fi
+        
+        # Get API data
+        local data=$(api_call "/api/data")
+        if [ -n "$data" ]; then
+            echo ""
+            echo -e "${BOLD}Positions:${NC}"
+            echo "$data" | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    op = d.get('open_position')
+    add = d.get('additional_positions', [])
+    if op:
+        print(f'  1. {op.get(\"symbol\")} {op.get(\"side\")} @ \${op.get(\"entry\",0):.2f} | PnL: \${op.get(\"pnl\",0):.2f}')
+    for i, p in enumerate(add):
+        print(f'  {i+2}. {p.get(\"symbol\")} {p.get(\"side\")} @ \${p.get(\"entry\",0):.2f} | PnL: \${p.get(\"pnl\",0):.2f}')
+    if not op and not add:
+        print('  No open positions')
+    print()
+    bal = d.get('balance', {})
+    print(f'Balance: \${bal.get(\"current\",0):.2f} ({bal.get(\"change_pct\",0):+.2f}%)')
+except:
+    print('  Unable to fetch data')
+" 2>/dev/null || echo "  Unable to fetch data"
+        fi
+    else
+        print_status error "Bot is not running"
+    fi
+    
+    echo ""
+    echo -e "Dashboard: ${CYAN}http://localhost:5000${NC}"
+}
+
+cmd_logs() {
+    local filter="$1"
+    echo -e "${BOLD}Live Logs${NC} (Ctrl+C to exit)"
+    echo "─────────────────────────────────────"
+    
+    if [ "$USE_SYSTEMD" = true ]; then
+        case "$filter" in
+            ai)     sudo journalctl -u "$SERVICE_NAME" -f | grep --line-buffered -E "AI|AUTONOMOUS|🤖|🧠|MATH" ;;
+            trade)  sudo journalctl -u "$SERVICE_NAME" -f | grep --line-buffered -E "LONG|SHORT|Position|Entry|Exit|OPENED|CLOSED" ;;
+            error)  sudo journalctl -u "$SERVICE_NAME" -f | grep --line-buffered -iE "error|exception|critical|warning" ;;
+            *)      sudo journalctl -u "$SERVICE_NAME" -f ;;
+        esac
+    else
+        case "$filter" in
+            ai)     tail -f "$LOG_FILE" | grep --line-buffered -E "AI|AUTONOMOUS|🤖|🧠|MATH" ;;
+            trade)  tail -f "$LOG_FILE" | grep --line-buffered -E "LONG|SHORT|Position|Entry|Exit|OPENED|CLOSED" ;;
+            error)  tail -f "$LOG_FILE" | grep --line-buffered -iE "error|exception|critical|warning" ;;
+            *)      tail -f "$LOG_FILE" ;;
+        esac
+    fi
+}
+
+cmd_balance() {
+    echo -e "${BOLD}Balance${NC}"
+    api_call "/api/data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+bal = d.get('balance', {})
+print(f'Initial:  \${bal.get(\"initial\",0):,.2f}')
+print(f'Current:  \${bal.get(\"current\",0):,.2f}')
+print(f'Change:   \${bal.get(\"change\",0):+,.2f} ({bal.get(\"change_pct\",0):+.2f}%)')
+" 2>/dev/null || echo "Unable to fetch balance"
+}
+
+cmd_positions() {
+    echo -e "${BOLD}Open Positions${NC}"
+    echo "─────────────────────────────────────"
+    api_call "/api/data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+op = d.get('open_position')
+add = d.get('additional_positions', [])
+total_pnl = 0
+if op:
+    pnl = op.get('pnl', 0)
+    total_pnl += pnl
+    print(f'Position 1: {op.get(\"symbol\")} {op.get(\"side\")}')
+    print(f'  Entry:   \${op.get(\"entry\",0):.4f}')
+    print(f'  Current: \${op.get(\"current_price\",0):.4f}')
+    print(f'  Size:    {op.get(\"size\",0):.6f}')
+    print(f'  PnL:     \${pnl:+.2f}')
+    print()
+for i, p in enumerate(add):
+    pnl = p.get('pnl', 0)
+    total_pnl += pnl
+    print(f'Position {i+2}: {p.get(\"symbol\")} {p.get(\"side\")}')
+    print(f'  Entry:   \${p.get(\"entry\",0):.4f}')
+    print(f'  Current: \${p.get(\"current_price\",0):.4f}')
+    print(f'  Size:    {p.get(\"size\",0):.6f}')
+    print(f'  PnL:     \${pnl:+.2f}')
+    print()
+if not op and not add:
+    print('No open positions')
+else:
+    print(f'Total Unrealized PnL: \${total_pnl:+.2f}')
+" 2>/dev/null || echo "Unable to fetch positions"
+}
+
+cmd_trades() {
+    local count="${1:-10}"
+    echo -e "${BOLD}Recent Trades (Last $count)${NC}"
+    echo "─────────────────────────────────────"
+    api_call "/api/data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+trades = d.get('trades', [])[-$count:]
+for t in reversed(trades):
+    result = '✓' if t.get('pnl', 0) >= 0 else '✗'
+    pnl = t.get('pnl', 0)
+    print(f'{result} {t.get(\"symbol\",\"?\")} {t.get(\"side\",\"?\")} | PnL: \${pnl:+.2f} | {t.get(\"exit_reason\",\"\")}')
+if not trades:
+    print('No trades yet')
+" 2>/dev/null || echo "Unable to fetch trades"
+}
+
+cmd_performance() {
+    echo -e "${BOLD}Performance Summary${NC}"
+    echo "─────────────────────────────────────"
+    api_call "/api/data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+bal = d.get('balance', {})
+stats = d.get('status', {})
+trades = d.get('trades', [])
+wins = sum(1 for t in trades if t.get('pnl', 0) >= 0)
+losses = len(trades) - wins
+win_rate = (wins / len(trades) * 100) if trades else 0
+total_pnl = sum(t.get('pnl', 0) for t in trades)
+print(f'Balance:    \${bal.get(\"current\",0):,.2f} ({bal.get(\"change_pct\",0):+.2f}%)')
+print(f'Total PnL:  \${total_pnl:+,.2f}')
+print(f'Trades:     {len(trades)} ({wins}W / {losses}L)')
+print(f'Win Rate:   {win_rate:.1f}%')
+print(f'Uptime:     {stats.get(\"uptime\", \"N/A\")}')
+" 2>/dev/null || echo "Unable to fetch performance"
+}
+
+cmd_close() {
+    local symbol="$1"
+    echo -e "${BOLD}Manual Close Position${NC}"
+    
+    if [ -z "$symbol" ]; then
+        # Show current positions and ask
+        echo "Current positions:"
+        api_call "/api/data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+op = d.get('open_position')
+add = d.get('additional_positions', [])
+if op:
+    print(f'  1. {op.get(\"symbol\")}')
+for i, p in enumerate(add):
+    print(f'  {i+2}. {p.get(\"symbol\")}')
+if not op and not add:
+    print('  No positions to close')
+    sys.exit(1)
+" 2>/dev/null || { echo "No positions"; return 1; }
+        
+        read -p "Enter symbol to close (e.g., ETHUSDT): " symbol
+    fi
+    
+    if [ -z "$symbol" ]; then
+        echo "No symbol provided"
+        return 1
+    fi
+    
+    read -p "Close $symbol? (y/N): " confirm
+    if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
+        echo "Cancelled"
+        return 0
+    fi
+    
+    echo "Closing $symbol..."
+    result=$(curl -s -X POST -H "Content-Type: application/json" \
+        -d "{\"symbol\": \"$symbol\"}" \
+        "$API_URL/api/control/close-position")
+    
+    echo "$result" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+if d.get('success'):
+    pnl = d.get('pnl', 0)
+    print(f'✓ Position closed! PnL: \${pnl:+.2f}')
+else:
+    print(f'✗ Failed: {d.get(\"error\", \"Unknown error\")}')
+" 2>/dev/null || echo "Error processing response"
+}
+
+cmd_dashboard() {
+    echo -e "${BOLD}Dashboard URL${NC}"
+    echo -e "${CYAN}http://localhost:5000${NC}"
+    
+    # Try to open in browser
+    if command -v xdg-open &>/dev/null; then
+        xdg-open "http://localhost:5000" 2>/dev/null &
+    elif command -v open &>/dev/null; then
+        open "http://localhost:5000" 2>/dev/null &
+    fi
+}
+
+cmd_config() {
+    echo -e "${BOLD}Configuration${NC}"
+    echo "─────────────────────────────────────"
+    if [ -f "$SCRIPT_DIR/julaba_config.json" ]; then
+        python3 -c "
+import json
+with open('$SCRIPT_DIR/julaba_config.json') as f:
+    c = json.load(f)
+print(f'Symbol:      {c.get(\"symbol\", \"N/A\")}')
+print(f'Risk:        {c.get(\"risk_pct\", 0)*100:.1f}%')
+print(f'Paper Mode:  {c.get(\"paper_mode\", True)}')
+print(f'AI Mode:     {c.get(\"ai_mode\", \"N/A\")}')
+print(f'Max Pos:     {c.get(\"max_positions\", 1)}')
+" 2>/dev/null || cat "$SCRIPT_DIR/julaba_config.json"
+    else
+        echo "Config file not found"
+    fi
+}
+
+cmd_health() {
+    echo -e "${BOLD}Health Check${NC}"
+    echo "─────────────────────────────────────"
+    
+    # Bot process
+    if is_running; then
+        print_status ok "Bot process running (PID: $(get_pid))"
+    else
+        print_status error "Bot process not running"
+    fi
+    
+    # Dashboard API
+    if api_call "/api/data" | grep -q "balance"; then
+        print_status ok "Dashboard API responding"
+    else
+        print_status error "Dashboard API not responding"
+    fi
+    
+    # Lock file
+    if [ -f "$LOCK_FILE" ]; then
+        print_status ok "Lock file present"
+    else
+        print_status warning "No lock file"
+    fi
+    
+    # Disk space
+    local disk_pct=$(df -h /home/opc | tail -1 | awk '{print $5}' | tr -d '%')
+    if [ "$disk_pct" -lt 90 ]; then
+        print_status ok "Disk space: ${disk_pct}% used"
+    else
+        print_status warning "Disk space: ${disk_pct}% used"
+    fi
+    
+    # Memory
+    local mem_pct=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
+    if [ "$mem_pct" -lt 90 ]; then
+        print_status ok "Memory: ${mem_pct}% used"
+    else
+        print_status warning "Memory: ${mem_pct}% used"
+    fi
+}
+
+cmd_ml() {
+    echo -e "${BOLD}🧠 ML Model Status${NC}"
+    echo "─────────────────────────────────────"
+    
+    # Get ML status from API
+    local data=$(api_call "/api/data")
+    if [ -z "$data" ]; then
+        print_status error "Cannot connect to dashboard"
+        return 1
+    fi
+    
+    echo "$data" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+ml = d.get('ml', {})
+regime = d.get('regime', {})
+
+print()
+print('📊 PIPELINE ML (XGBoost - Backtest Model):')
+print(f'   Status:    {\"✅ Loaded\" if ml.get(\"loaded\") else \"❌ Not Loaded\"}')
+print(f'   Accuracy:  {ml.get(\"accuracy\", 0)*100:.1f}%')
+print(f'   Samples:   {ml.get(\"samples\", 0)} (from backtests)')
+print()
+print('🎯 LIVE ML (GradientBoosting - Your Trades):')
+print(f'   Status:    {\"✅ Trained\" if ml.get(\"live_trained\") else \"❌ Not Trained\"}')
+print(f'   Samples:   {ml.get(\"live_samples\", 0)} live trades')
+print(f'   Win/Loss:  {ml.get(\"live_wins\", 0)}/{ml.get(\"live_losses\", 0)} ({ml.get(\"live_wins\", 0)/max(1,ml.get(\"live_samples\",1))*100:.1f}% win rate)')
+print()
+print('📈 CURRENT PREDICTION:')
+print(f'   Regime:    {regime.get(\"regime\", \"N/A\")}')
+print(f'   ML Conf:   {regime.get(\"ml_confidence\", 0):.0f}%')
+print(f'   Tradeable: {\"Yes\" if regime.get(\"tradeable\") else \"No\"}')
+"
+    
+    # Show feature importance from pickle
+    echo ""
+    echo -e "${BOLD}Top Predictive Features:${NC}"
+    python3 -c "
+import pickle
+try:
+    with open('/home/opc/julaba/ml_regime_model.pkl', 'rb') as f:
+        data = pickle.load(f)
+    model = data.get('model')
+    if model:
+        import numpy as np
+        features = ['adx', 'hurst', 'volatility_ratio', 'rsi', 'price_vs_sma15', 'price_vs_sma40', 
+                    'sma_spread', 'recent_return_mean', 'recent_return_std', 'recent_max_dd',
+                    'volume_ratio', 'volume_trend', 'volume_spike', 'btc_correlation', 'btc_beta',
+                    'btc_relative_strength', 'rsi_divergence', 'momentum_strength',
+                    'volatility_clustering', 'range_expansion', 'trend_consistency', 'hour_of_day']
+        importances = model.feature_importances_
+        sorted_idx = np.argsort(importances)[::-1]
+        for i, idx in enumerate(sorted_idx[:5]):
+            bar = '█' * int(importances[idx] * 40)
+            print(f'   {i+1}. {features[idx]:22} {importances[idx]*100:5.1f}% {bar}')
+    else:
+        print('   Model not yet trained')
+except Exception as e:
+    print(f'   Error loading model: {e}')
+"
+    
+    echo ""
+    echo -e "${DIM}Commands:${NC}"
+    echo "  python3 ml_pipeline.py       # Retrain pipeline ML"
+    echo "  j restart                    # Reload ML after training"
+}
+
+cmd_help() {
+    print_banner
+    cat << EOF
+${BOLD}USAGE:${NC}
+    julaba <command> [options]
+
+${BOLD}COMMANDS:${NC}
+    ${GREEN}start${NC}              Start the trading bot
+    ${GREEN}stop${NC}               Stop the trading bot
+    ${GREEN}restart${NC}            Restart the trading bot
+    ${GREEN}status${NC}, ${GREEN}s${NC}          Show bot status and positions
+
+${BOLD}MONITORING:${NC}
+    ${CYAN}logs${NC}               View live logs
+    ${CYAN}logs ai${NC}            View AI decision logs
+    ${CYAN}logs trade${NC}         View trade logs only
+    ${CYAN}logs error${NC}         View error logs only
+
+${BOLD}TRADING:${NC}
+    ${YELLOW}positions${NC}, ${YELLOW}pos${NC}    Show open positions
+    ${YELLOW}balance${NC}, ${YELLOW}bal${NC}      Show balance
+    ${YELLOW}trades${NC} [n]        Show last n trades (default: 10)
+    ${YELLOW}close${NC} [symbol]    Close a position manually
+    ${YELLOW}performance${NC}, ${YELLOW}perf${NC} Show performance summary
+
+${BOLD}SYSTEM:${NC}
+    ${BLUE}health${NC}             Run health check
+    ${BLUE}config${NC}             Show configuration
+    ${BLUE}dashboard${NC}          Open dashboard URL
+    ${BLUE}help${NC}               Show this help
+
+${BOLD}EXAMPLES:${NC}
+    julaba start           # Start the bot
+    julaba status          # Check status
+    julaba logs ai         # Watch AI decisions
+    julaba trades 20       # Show last 20 trades
+    julaba close ETHUSDT   # Close ETH position
+    julaba perf            # Performance summary
+
+EOF
+}
+
+#═══════════════════════════════════════════════════════════════════════════════
+# MAIN COMMAND DISPATCHER
+#═══════════════════════════════════════════════════════════════════════════════
+
+case "${1:-}" in
+    start)
+        cmd_start
+        ;;
+    stop)
+        cmd_stop
+        ;;
+    restart)
+        cmd_restart
+        ;;
+    status|s)
+        cmd_status
+        ;;
+    logs|log|l)
+        cmd_logs "$2"
+        ;;
+    balance|bal|b)
+        cmd_balance
+        ;;
+    positions|pos|p)
+        cmd_positions
+        ;;
+    trades|t)
+        cmd_trades "$2"
+        ;;
+    performance|perf)
+        cmd_performance
+        ;;
+    close)
+        cmd_close "$2"
+        ;;
+    health|check)
+        cmd_health
+        ;;
+    config|cfg)
+        cmd_config
+        ;;
+    dashboard|dash|web)
+        cmd_dashboard
+        ;;
+    ml)
+        cmd_ml
+        ;;
+    help|h|--help|-h)
+        cmd_help
+        ;;
+    "")
+        cmd_help
+        ;;
+    *)
+        echo -e "${RED}Unknown command: $1${NC}"
+        echo "Run 'julaba help' for available commands"
+        exit 1
+        ;;
+esac

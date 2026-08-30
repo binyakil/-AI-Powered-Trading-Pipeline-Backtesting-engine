@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run {{ run_id }} Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.1/dist/chartjs-chart-financial.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0e1117;
+      --panel: #161b22;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.35);
+      --text: #f3f4f6;
+      --muted: #94a3b8;
+      --danger: #f87171;
+      --success: #34d399;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .summary-card {
+      background: var(--panel);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .summary-card span {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .summary-card strong {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .price-panel {
+      margin-bottom: 24px;
+    }
+    .price-panel canvas {
+      height: 420px;
+    }
+    .panel {
+      background: var(--panel);
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .panel h3 {
+      margin: 0 0 16px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    canvas {
+      width: 100%;
+      height: 320px;
+    }
+    .notice {
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      color: var(--danger);
+      background: rgba(248, 113, 113, 0.08);
+      margin-bottom: 20px;
+    }
+    @media (max-width: 640px) {
+      .panel {
+        padding: 14px;
+      }
+      canvas {
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Run {{ run_id }} · Trade Analysis</h1>
+      <a href="{{ url_for('sweep') }}">← Back to Sweep</a>
+    </header>
+
+    <div id="dataWarning" class="notice" hidden>
+      Trade data missing for this run. Export the trades again from the sweep dashboard to view analytics.
+    </div>
+
+    <section class="summary-grid">
+      <div class="summary-card">
+        <span>Trades</span>
+        <strong>{{ summary.get('trades', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Total R</span>
+        <strong>{{ summary.get('total_r', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Expectancy</span>
+        <strong>{{ summary.get('expectancy', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Win Rate</span>
+        <strong>{{ summary.get('win_rate', '—') }}%</strong>
+      </div>
+      <div class="summary-card">
+        <span>Avg Win / Loss</span>
+        <strong>{{ summary.get('avg_win', '—') }} / {{ summary.get('avg_loss', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Max Drawdown</span>
+        <strong>{{ summary.get('max_drawdown', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Long vs Short (R)</span>
+        <strong>{{ summary.get('long_total', '—') }} / {{ summary.get('short_total', '—') }}</strong>
+      </div>
+      <div class="summary-card">
+        <span>Best / Worst Streak</span>
+        <strong>{{ summary.get('best_streak', '—') }} / {{ summary.get('worst_streak', '—') }}</strong>
+      </div>
+    </section>
+
+    <section class="panel price-panel" id="pricePanel">
+      <h3>Price Action &amp; Trades</h3>
+      <canvas id="priceChart"></canvas>
+    </section>
+
+    <section class="charts-grid">
+      <div class="panel">
+        <h3>Equity Curve (R)</h3>
+        <canvas id="equityChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Drawdown &amp; Underwater %</h3>
+        <canvas id="drawdownChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Long vs Short Contribution</h3>
+        <canvas id="splitChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Rolling Expectancy &amp; Streaks</h3>
+        <canvas id="expectancyChart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <script id="chartPayloadData" type="application/json">{{ chart_data | default('{}') | safe }}</script>
+  <script>
+    let chartPayload = {};
+    try {
+      const payloadNode = document.getElementById('chartPayloadData');
+      const payloadRaw = payloadNode ? payloadNode.textContent : '{}';
+      chartPayload = JSON.parse(payloadRaw || '{}');
+    } catch (err) {
+      console.error('Failed to parse chart payload', err);
+      chartPayload = {};
+    }
+    console.log('Chart payload', chartPayload);
+    const warningNode = document.getElementById('dataWarning');
+
+    if (!chartPayload || !Array.isArray(chartPayload.trade_labels) || chartPayload.trade_labels.length === 0) {
+      warningNode.hidden = false;
+    } else {
+      Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#f3f4f6';
+      Chart.defaults.borderColor = 'rgba(255,255,255,0.15)';
+      Chart.defaults.font.family = "'Inter', 'Segoe UI', sans-serif";
+
+      const tradeLabels = chartPayload.entry_labels || chartPayload.trade_labels;
+      const eqCtx = document.getElementById('equityChart');
+      new Chart(eqCtx, {
+        type: 'line',
+        data: {
+          labels: tradeLabels,
+          datasets: [{
+            label: 'Equity (R)',
+            data: chartPayload.equity || [],
+            borderColor: 'rgba(52, 211, 153, 0.9)',
+            backgroundColor: 'rgba(52, 211, 153, 0.15)',
+            fill: true,
+            tension: 0.25,
+            pointRadius: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            y: { title: { display: true, text: 'R' } },
+            x: { ticks: { display: false } }
+          }
+        }
+      });
+
+      const underwaterPct = (chartPayload.underwater || []).map(v => Math.round((v || 0) * 10000) / 100);
+      const ddCtx = document.getElementById('drawdownChart');
+      new Chart(ddCtx, {
+        type: 'line',
+        data: {
+          labels: tradeLabels,
+          datasets: [
+            {
+              label: 'Drawdown (R)',
+              data: chartPayload.drawdown || [],
+              borderColor: 'rgba(248, 113, 113, 0.8)',
+              backgroundColor: 'rgba(248, 113, 113, 0.2)',
+              fill: true,
+              tension: 0.2,
+              pointRadius: 0
+            },
+            {
+              type: 'bar',
+              label: 'Underwater %',
+              data: underwaterPct,
+              yAxisID: 'percent',
+              backgroundColor: 'rgba(59, 130, 246, 0.35)',
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            y: {
+              title: { display: true, text: 'Drawdown (R)' }
+            },
+            percent: {
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              ticks: {
+                callback: v => v + '%'
+              },
+              title: { display: true, text: 'Underwater %' }
+            },
+            x: { ticks: { display: false } }
+          }
+        }
+      });
+
+      const splitCtx = document.getElementById('splitChart');
+      new Chart(splitCtx, {
+        type: 'line',
+        data: {
+          labels: tradeLabels,
+          datasets: [
+            {
+              label: 'Long Equity',
+              data: chartPayload.long_equity || [],
+              borderColor: 'rgba(96, 165, 250, 0.95)',
+              tension: 0.25,
+              fill: false,
+              pointRadius: 0
+            },
+            {
+              label: 'Short Equity',
+              data: chartPayload.short_equity || [],
+              borderColor: 'rgba(248, 113, 113, 0.95)',
+              tension: 0.25,
+              fill: false,
+              pointRadius: 0
+            }
+          ]
+        },
+        options: {
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            y: { title: { display: true, text: 'R' } },
+            x: { ticks: { display: false } }
+          }
+        }
+      });
+
+      const expectancyCtx = document.getElementById('expectancyChart');
+      new Chart(expectancyCtx, {
+        type: 'line',
+        data: {
+          labels: tradeLabels,
+          datasets: [
+            {
+              label: 'Rolling Expectancy (20 trades)',
+              data: chartPayload.rolling_expectancy || [],
+              borderColor: 'rgba(16, 185, 129, 0.9)',
+              backgroundColor: 'rgba(16, 185, 129, 0.15)',
+              pointRadius: 0,
+              tension: 0.25,
+              fill: true,
+              yAxisID: 'expectancy'
+            },
+            {
+              type: 'bar',
+              label: 'Win/Loss Streak',
+              data: chartPayload.streaks || [],
+              backgroundColor: (chartPayload.streaks || []).map(v => v >= 0 ? 'rgba(52, 211, 153, 0.6)' : 'rgba(248, 113, 113, 0.6)'),
+              borderRadius: 3,
+              yAxisID: 'streak'
+            }
+          ]
+        },
+        options: {
+          interaction: { mode: 'index', intersect: false },
+          scales: {
+            expectancy: {
+              position: 'left',
+              title: { display: true, text: 'R / Trade' }
+            },
+            streak: {
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              title: { display: true, text: 'Trade Count' }
+            },
+            x: { ticks: { display: false } }
+          }
+        }
+      });
+    }
+
+    const pricePanel = document.getElementById('pricePanel');
+    const priceLabels = chartPayload.price_labels || [];
+    const priceClose = chartPayload.price_close || [];
+    const priceOpen = chartPayload.price_open || [];
+    const priceHigh = chartPayload.price_high || [];
+    const priceLow = chartPayload.price_low || [];
+    const hasPrice = Array.isArray(priceClose) && priceClose.length > 0;
+
+    if (!hasPrice) {
+      if (pricePanel) {
+        pricePanel.hidden = true;
+      }
+    } else {
+      const priceCtx = document.getElementById('priceChart');
+      const hasCandles = Boolean(Chart.registry && Chart.registry.getController && Chart.registry.getController('candlestick'));
+      const priceData = priceClose.map((val, idx) => ({ x: idx, y: val }));
+      const candleData = priceClose.map((_, idx) => ({
+        x: idx,
+        o: priceOpen[idx],
+        h: priceHigh[idx],
+        l: priceLow[idx],
+        c: priceClose[idx]
+      }));
+
+      const winLines = chartPayload.trade_lines_win || [];
+      const lossLines = chartPayload.trade_lines_loss || [];
+      const flatLines = chartPayload.trade_lines_flat || [];
+      const stopLines = chartPayload.stop_lines || [];
+      const entriesLong = chartPayload.entries_long || [];
+      const entriesShort = chartPayload.entries_short || [];
+      const exitsWin = chartPayload.exits_win || [];
+      const exitsLoss = chartPayload.exits_loss || [];
+      const exitsFlat = chartPayload.exits_flat || [];
+
+      const datasets = [];
+      if (hasCandles) {
+        datasets.push({
+          label: 'OHLC',
+          data: candleData,
+          type: 'candlestick'
+        });
+      } else {
+        datasets.push({
+          label: 'Close',
+          data: priceData,
+          borderColor: 'rgba(148, 163, 184, 0.9)',
+          backgroundColor: 'rgba(148, 163, 184, 0.15)',
+          borderWidth: 1,
+          pointRadius: 0,
+          tension: 0,
+          fill: false
+        });
+      }
+
+      if (stopLines.length) {
+        datasets.push({
+          label: 'Stop (Final)',
+          type: 'line',
+          data: stopLines,
+          borderColor: 'rgba(245, 158, 11, 0.55)',
+          borderWidth: 1,
+          borderDash: [6, 4],
+          pointRadius: 0,
+          spanGaps: false
+        });
+      }
+      if (winLines.length) {
+        datasets.push({
+          label: 'Trade (Win)',
+          type: 'line',
+          data: winLines,
+          borderColor: 'rgba(34, 197, 94, 0.85)',
+          borderWidth: 2,
+          pointRadius: 0,
+          spanGaps: false
+        });
+      }
+      if (lossLines.length) {
+        datasets.push({
+          label: 'Trade (Loss)',
+          type: 'line',
+          data: lossLines,
+          borderColor: 'rgba(248, 113, 113, 0.85)',
+          borderWidth: 2,
+          pointRadius: 0,
+          spanGaps: false
+        });
+      }
+      if (flatLines.length) {
+        datasets.push({
+          label: 'Trade (Flat)',
+          type: 'line',
+          data: flatLines,
+          borderColor: 'rgba(148, 163, 184, 0.85)',
+          borderWidth: 1,
+          pointRadius: 0,
+          spanGaps: false
+        });
+      }
+      if (entriesLong.length) {
+        datasets.push({
+          label: 'Entry (Long)',
+          type: 'scatter',
+          data: entriesLong,
+          pointRadius: 5,
+          pointStyle: 'triangle',
+          pointRotation: 0,
+          backgroundColor: 'rgba(34, 197, 94, 0.9)'
+        });
+      }
+      if (entriesShort.length) {
+        datasets.push({
+          label: 'Entry (Short)',
+          type: 'scatter',
+          data: entriesShort,
+          pointRadius: 5,
+          pointStyle: 'triangle',
+          pointRotation: 180,
+          backgroundColor: 'rgba(248, 113, 113, 0.9)'
+        });
+      }
+      if (exitsWin.length) {
+        datasets.push({
+          label: 'Exit (Win)',
+          type: 'scatter',
+          data: exitsWin,
+          pointRadius: 4,
+          pointStyle: 'rectRot',
+          backgroundColor: 'rgba(34, 197, 94, 0.85)'
+        });
+      }
+      if (exitsLoss.length) {
+        datasets.push({
+          label: 'Exit (Loss)',
+          type: 'scatter',
+          data: exitsLoss,
+          pointRadius: 4,
+          pointStyle: 'rectRot',
+          backgroundColor: 'rgba(248, 113, 113, 0.85)'
+        });
+      }
+      if (exitsFlat.length) {
+        datasets.push({
+          label: 'Exit (Flat)',
+          type: 'scatter',
+          data: exitsFlat,
+          pointRadius: 4,
+          pointStyle: 'rectRot',
+          backgroundColor: 'rgba(148, 163, 184, 0.85)'
+        });
+      }
+
+      const axisLabel = (value) => {
+        const idx = Math.round(value);
+        return priceLabels[idx] || '';
+      };
+
+      new Chart(priceCtx, {
+        type: hasCandles ? 'candlestick' : 'line',
+        data: { datasets },
+        options: {
+          parsing: false,
+          responsive: true,
+          interaction: { mode: 'nearest', intersect: false },
+          scales: {
+            x: {
+              type: 'linear',
+              ticks: {
+                callback: axisLabel,
+                maxTicksLimit: 8,
+                color: Chart.defaults.color
+              }
+            },
+            y: {
+              title: { display: true, text: 'Price' }
+            }
+          },
+          plugins: {
+            zoom: {
+              zoom: {
+                wheel: { enabled: true },
+                pinch: { enabled: true },
+                drag: { enabled: true, modifierKey: 'shift' },
+                mode: 'x'
+              },
+              pan: {
+                enabled: true,
+                mode: 'x',
+                modifierKey: 'shift'
+              }
+            },
+            tooltip: {
+              callbacks: {
+                title: (items) => {
+                  if (!items.length) return '';
+                  const idx = items[0].parsed.x;
+                  return priceLabels[Math.round(idx)] || '';
+                },
+                label: (context) => {
+                  const raw = context.raw || {};
+                  if (raw && typeof raw.o !== 'undefined') {
+                    return `O:${raw.o} H:${raw.h} L:${raw.l} C:${raw.c}`;
+                  }
+                  if (raw && typeof raw.trade_id !== 'undefined') {
+                    const side = raw.side === 1 ? 'Long' : raw.side === -1 ? 'Short' : '—';
+                    const r = typeof raw.r_result === 'number' ? raw.r_result.toFixed(2) : raw.r_result;
+                    const reason = raw.exit_reason ? ` ${raw.exit_reason}` : '';
+                    return `#${raw.trade_id} ${side} @ ${raw.y}${reason} (R ${r})`;
+                  }
+                  return `${context.dataset.label}: ${context.parsed.y}`;
+                }
+              }
+            },
+            legend: {
+              labels: {
+                filter: (item) => item.text !== 'OHLC'
+              }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

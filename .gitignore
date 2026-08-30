@@ -1,0 +1,26 @@
+# Environments & Cache
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Data, Logs & Media
+data/
+*.csv
+*.log
+*.png
+*.tar.gz
+
+# Secrets & Credentials
+secrets/
+credentials.json
+2credentials.json
+token.json
+*.pem
+PAT.txt
+*contabo*.txt
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

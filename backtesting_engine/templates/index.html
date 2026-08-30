@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backtest Sweeper</title>
+  <style>
+    body { font-family: Arial; margin: 40px; background: #f4f4f4; }
+    .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; }
+    input, button, select { margin: 10px 0; padding: 10px; font-size: 16px; width: 100%; }
+    button { background: #0066cc; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0052a3; }
+    .hidden { display: none; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .row input[type="file"] { flex: 1 1 280px; }
+    .row input[type="text"] { flex: 1 1 220px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Backtest Any Strategy</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <p><strong>1. Upload OHLCV CSV</strong> (Kraken/Binance format)</p>
+      <div class="row">
+        <input type="file" name="csv_file" accept=".csv" required>
+        <input type="text" name="csv_label" placeholder="Data description (e.g., Q1-Q3 2025)" required>
+      </div>
+
+      <p><strong>2. Upload Indicator (.py)</strong></p>
+      <div class="row">
+        <input type="file" name="indicator_file" accept=".py" required>
+        <input type="text" name="indicator_label" placeholder="Indicator description" required>
+      </div>
+
+      <p>
+        <label>
+          <input type="checkbox" id="downsample"> Downsample candles (1m → 3m)
+        </label>
+      </p>
+
+      <div id="downsample_opts" class="hidden">
+        From: 1m → To: <select name="to_tf"><option>3m</option></select>
+      </div>
+
+      <br>
+      <button type="submit">CONTINUE →</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('downsample').onchange = function() {
+      document.getElementById('downsample_opts').classList.toggle('hidden', !this.checked);
+    };
+  </script>
+</body>
+</html>
